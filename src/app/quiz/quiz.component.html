@@ -9,7 +9,11 @@
       <app-klotski *ngIf="currentQuestion.extraComponent === 'klotski'" (isCompleteChange)="onKlotskiComplete($event)"></app-klotski>
       <app-audio *ngIf="currentQuestion.extraComponent === 'audio'" [source]="currentQuestion.media!"></app-audio>
       <img *ngIf="currentQuestion.extraComponent === 'image'" [src]="currentQuestion.media!" style="width: 90%;">
-      <app-panorama *ngIf="currentQuestion.extraComponent === 'sphere'" ></app-panorama>
+      <div>
+        <app-panorama *ngIf="currentQuestion.extraComponent === 'sphere'" ></app-panorama>
+        <br>
+        <img *ngIf="currentQuestion.extraComponent === 'sphere'" src="../../assets/kartka.jpg" style="height: 100px;">
+      </div>
       <div *ngIf="currentQuestion.icon" class="extraIcon">
         <img [src]="currentQuestion.icon">
       </div>
