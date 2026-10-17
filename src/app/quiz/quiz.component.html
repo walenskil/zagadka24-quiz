@@ -1,0 +1,44 @@
+<main class="escape-room">
+  <section class="puzzle" aria-labelledby="question">
+    <div class="ambient-light" aria-hidden="true"></div>
+    <p class="room-label">{{ currentQuestion.title }}</p>
+
+    <p class="story" [innerHTML]="currentQuestion.story"></p>
+    <div style="width: 100%; display: flex; justify-content: center; margin-top: 4px; position: relative;">
+      <app-polibiusz *ngIf="currentQuestion.extraComponent === 'polibiusz'"></app-polibiusz>
+      <app-klotski *ngIf="currentQuestion.extraComponent === 'klotski'" (isCompleteChange)="onKlotskiComplete($event)"></app-klotski>
+      <app-audio *ngIf="currentQuestion.extraComponent === 'audio'" [source]="currentQuestion.media!"></app-audio>
+      <img *ngIf="currentQuestion.extraComponent === 'image'" [src]="currentQuestion.media!" style="width: 90%;">
+      <app-panorama *ngIf="currentQuestion.extraComponent === 'sphere'" ></app-panorama>
+      <div *ngIf="currentQuestion.icon" class="extraIcon">
+        <img [src]="currentQuestion.icon">
+      </div>
+    </div>
+    <ng-container *ngIf="!isComplete; else escapeComplete">
+      <h1 id="question" [innerHTML]="currentQuestion.question"></h1>
+      <p class="error-message" role="alert" aria-live="polite">
+        <span *ngIf="showWrongAnswer">Zła odpowiedź</span>
+      </p>
+
+      <form class="answer-form" (ngSubmit)="checkAnswer()">
+        <label for="answer">Wpisz odpowiedź</label>
+        <input *ngIf="currentQuestion.extraComponent !== 'klotski'"
+          id="answer"
+          name="answer"
+          type="text"
+          [(ngModel)]="answer"
+          autocomplete="off"
+          placeholder="..."
+          required
+          autofocus
+        />
+        <button type="submit" [disabled]="!answer.trim()">Otwórz zamek</button>
+      </form>
+    </ng-container>
+
+    <ng-template #escapeComplete>
+      <h1 id="question">Zamek ustąpił.</h1>
+      <p class="completion-message">Udało Ci się wydostać z pokoju.</p>
+    </ng-template>
+  </section>
+</main>

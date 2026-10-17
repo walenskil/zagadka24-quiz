@@ -1,0 +1,25 @@
+<main class="game-shell">
+  <section class="game-card" aria-labelledby="game-title" style="width: 300px;">
+    <div
+      class="board"
+      [style.gridTemplateColumns]="'repeat(' + cols + ', minmax(0, 1fr))'"
+      [attr.aria-label]="'Plansza ' + rows + ' na ' + cols"
+      role="group"
+    >
+      <button
+        *ngFor="let tile of tiles; let index = index; trackBy: trackByIndex"
+        type="button"
+        class="tile"
+        [class.empty]="tile === 0"
+        [class.movable]="tile !== 0 && canMove(index) && !isComplete"
+        [disabled]="tile === 0 || isComplete"
+        [attr.aria-label]="tile === 0 ? 'Puste pole' : 'Kafelek ' + tile"
+        (click)="moveTile(index)"
+      >
+        <span *ngIf="tile !== 0">{{ tile }}</span>
+      </button>
+    </div>
+
+  <!--   <button type="button" class="new-game" (click)="newGame()">Potasuj ponownie</button> -->
+  </section>
+</main>

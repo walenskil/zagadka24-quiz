@@ -1,0 +1,49 @@
+<main class="welcome-page">
+  <div class="welcome-card">
+    <div class="logo-placeholder" aria-label="Miejsce na logo">
+      <img src="assets/logo_gpt.png" alt="Logo Quizu" style="max-width: 100%; border-radius: 12px;"/>
+    </div>
+    <h1>Zagadka42</h1>
+    <p class="eyebrow">Poznaj jedną z naszych historii</p>
+    <p class="intro">
+      Nikt nie pamięta, kiedy wszystko wymknęło się spod kontroli. Wiadomo
+      tylko, że pewien genialny programista zniknął bez śladu po serii
+      tajemniczych incydentów z w jednej z wielkich korporacji. Pozostawił po sobie zamknięty system,
+      zaszyfrowane komunikaty i plan, którego skutki mogłyby dotknąć milionów ludzi.
+    </p>
+
+    <form class="welcome-form">
+      <label class="field-label" for="email">Jak jest twój email?</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="Podaj adres email"
+        [(ngModel)]="email"
+      />
+
+      <label class="terms-label">
+        <input
+          name="termsAccepted"
+          type="checkbox"
+          [(ngModel)]="termsAccepted"
+        />
+        <span>Akceptuję</span><span class="terms-link" (click)="openRegulamin()">regulamin</span><span>i zasady udziału w quizie. </span>
+      </label>
+
+      <button
+        type="button"
+        (click)="startQuiz()"
+        [disabled]="!canStart"
+      >
+        Zaczynamy
+        <span aria-hidden="true">→</span>
+      </button>
+      <div class="small">
+        Pytanie brzmi: czy zdołacie poznać całą prawdę i powstrzymać katastrofę, zanim będzie za późno?
+      </div>
+    </form>
+    <p class="footer-note">Zagadka42 - Xlookup Łukasz Waleński</p>
+  </div>
+</main>
+
