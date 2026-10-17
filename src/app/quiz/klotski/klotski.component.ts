@@ -57,7 +57,6 @@ export class KlotskiComponent {
     if (!this.canMove(index) || this.isComplete) {
       return;
     }
-    this.isCompleteChange.emit(true);
     const emptyIndex = this.tiles.indexOf(0);
     [this.tiles[index], this.tiles[emptyIndex]] = [this.tiles[emptyIndex], this.tiles[index]];
     this.moves += 1;

@@ -12,14 +12,14 @@
       <div>
         <app-panorama *ngIf="currentQuestion.extraComponent === 'sphere'" ></app-panorama>
         <br>
-        <img *ngIf="currentQuestion.extraComponent === 'sphere'" src="../../assets/kartka.jpg" style="height: 100px;">
+        <img *ngIf="currentQuestion.extraComponent === 'sphere'" src="../../assets/kartka.jpg" style="height: 100px; width: 100%;">
       </div>
       <div *ngIf="currentQuestion.icon" class="extraIcon">
         <img [src]="currentQuestion.icon">
       </div>
     </div>
-    <ng-container *ngIf="!isComplete; else escapeComplete">
-      <h1 id="question" [innerHTML]="currentQuestion.question"></h1>
+    <ng-container>
+      <h1 id="question" [innerHTML]="currentQuestion.question" style="text-decoration: none; color: white;"></h1>
       <p class="error-message" role="alert" aria-live="polite">
         <span *ngIf="showWrongAnswer">Zła odpowiedź</span>
       </p>
@@ -39,10 +39,5 @@
         <button type="submit" [disabled]="!answer.trim()">Otwórz zamek</button>
       </form>
     </ng-container>
-
-    <ng-template #escapeComplete>
-      <h1 id="question">Zamek ustąpił.</h1>
-      <p class="completion-message">Udało Ci się wydostać z pokoju.</p>
-    </ng-template>
   </section>
 </main>
