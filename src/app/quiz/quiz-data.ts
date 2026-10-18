@@ -10,7 +10,6 @@ export interface QuizQuestion {
 }
 
 export const QUIZ_QUESTIONS: QuizQuestion[] = [
-
   {
     title: '1. Ostatnia prezentacja',
     story:
@@ -20,7 +19,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     extraComponent: 'polibiusz',
   },
   {
-    title: '2. Pierwsze ostrzeżenie',
+    title: '2. Spotkanie',
     story: 'Kilka dni później umówiłam się z nim w opuszczonej kawiarni. Twierdził, że popełniono wobec niego niewybaczalną niesprawiedliwość. Mówił spokojnie, ale każde zdanie brzmiało jak groźba. Podczas rozmowy zauważyłam na jego laptopie zaszyfrowane pliki oznaczone symbolem przypominającym czarną łapę. Gdy zapytałam, czym są, błyskawicznie zamknął ekran. Wtedy po raz pierwszy zaczęłam podejrzewać, że pracuje nad czymś znacznie groźniejszym niż niedokończona aplikacja. Gdy zapytałam o co chodzi, kazał mi tylko obserwować wiadomości. Na odchodnę powiedział, że odpowiedź kryje się za tą zagadką.',
     question: 'Ojciec Gniewu miał 3 synów. Złość, Furię i ... Jak nazywa się trzeci syn? ',
     answers: ['Gniew'],
@@ -34,7 +33,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     icon: '../../assets/click.gif'
   },
   {
-    title: '4. Samotny architekt',
+    title: '4. Śledztwo',
     story: 'W mailu była dluga wiadomość od Zygmunta, która mocno pokreślała determiację do zniszczenia obecnego obecnego systemu. Gniew, który się w niej wylewał zbudzał strach. Kierowana niepokojem rozpoczęłam własne dochodzenie. Przeglądałam stare notatki, wiadomości oraz projekty, które kiedyś omawialiśmy wspólnie. W jednym z zapomnianych archiwów natrafiłam na dokument opisujący eksperymentalnego wirusa zdolnego do samodzielnej adaptacji. Nazwa autora została usunięta, lecz styl komentarzy w kodzie nie pozostawiał wątpliwości. Zygmunt nie budował zwykłego programu. Tworzył cyfrową broń. Postanowiłam działać. Zadzowniłam do niego, lecz zamiast jego głosu usłszyałam tylko ten sygnał.',
     question: 'Co to jest?',
     answers: ['42'],
@@ -82,7 +81,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   
   {
-    title: '10. Pierwsze ostrzeżenie',
+    title: '10. Ultimatum',
     story: 'Kilka godzin później Zygmunt wystosował ultimatum do światowych przywódców i największych instytucji finansowych. Zażądał przekazania mu 100 miliardów dolarów w ciągu 87 godzin. W przeciwnym razie zapowiedział wywołanie globalnego chaosu za pomocą wirusa "Czarna Łapa". Patrzyłam na ekran w całkowitym milczeniu. Wiedziałam, że gdzieś tam jest człowiek, którego kiedyś uważałam za przyjaciela, a teraz cały świat czekał na jego kolejny ruch. Na szczęście wiedziałam gdzie się znajdował i przekazałam informację odpowiednim służbom. Leżąc późnym wieczorem w łóżku, w na dnie szuflady szafki nocnej znalazłam starą nierozwiązaną zagadkę, którą kiedyś Zygmunt napisał mi dla zabawy',
     question: 'Jestem wysoki, gdy jestem nowy, i niski, gdy jestem stary. Daję światło, póki żyję, a lekki powiew może mnie zabije. Kim jestem??',
     answers: ['Świeca', 'Świeczka'],
