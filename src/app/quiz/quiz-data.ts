@@ -15,7 +15,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     title: '1. Ostatnia prezentacja',
     story:
       'Nazywam się Stefania i przez lata uważałam Zygmunta za geniusza. Był tym człowiekiem, którego u nas w firmie zawsze proszono o pomoc, gdy zawodzili wszyscy inni programiści. Od zawsze potarfił rozwiązywać najtrudniejsze problemy i pisał najbardziej złożone algorytmy. Lubił też zagadki. Często na biurku znajdowałam jakąś, którą podrzucał mi dla rozrywki. Jednej nie rozwiązałam do dzisiaj. Kiedy przedstawił zarządowi swój projekt aplikacji monitorującej aktywność milionów użytkowników, był przekonany, że zmieni świat. Jednak kierownictwo dostrzegło coś innego. System potrafił śledzić niemal każdy cyfrowy ślad człowieka. Projekt uznano za zbyt niebezpieczny, a samego Zygmunta za osobę nieprzewidywalną. Tego dnia został natychmiast zwolniony. Wychodząc z biura, odwrócił się tylko raz. W jego spojrzeniu zobaczyłam coś, czego wcześniej nie znałam. Nawet się z nim niepożegnałam. Zoatawił mi tylko kartkę z takim oto zapisem. Co to może znaczyć?.',
-    question: '55-15-32-43-44-11',
+    question: '55-&shy;15-32-4&shy;3-44-11',
     answers: ['zemsta'],
     extraComponent: 'polibiusz',
   },
