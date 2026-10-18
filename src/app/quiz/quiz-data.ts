@@ -35,7 +35,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     title: '4. Samotny architekt',
-    story: 'W mailu była dluga wiadomość od Zygmunta, która mocno pokreślała determiację do zniszczenia obecnego świata. Kierowana niepokojem rozpoczęłam własne dochodzenie. Przeglądałam stare notatki, wiadomości oraz projekty, które kiedyś omawialiśmy wspólnie. W jednym z zapomnianych archiwów natrafiłam na dokument opisujący eksperymentalnego wirusa zdolnego do samodzielnej adaptacji. Nazwa autora została usunięta, lecz styl komentarzy w kodzie nie pozostawiał wątpliwości. Zygmunt nie budował zwykłego programu. Tworzył cyfrową broń. Postanowiłam działać. Zadzowniłam do niego, lecz zamiast jego głosu usłszyałam tylko ten sygnał.',
+    story: 'W mailu była dluga wiadomość od Zygmunta, która mocno pokreślała determiację do zniszczenia obecnego obecnego systemu. Gniew, który się w niej wylewał zbudzał strach. Kierowana niepokojem rozpoczęłam własne dochodzenie. Przeglądałam stare notatki, wiadomości oraz projekty, które kiedyś omawialiśmy wspólnie. W jednym z zapomnianych archiwów natrafiłam na dokument opisujący eksperymentalnego wirusa zdolnego do samodzielnej adaptacji. Nazwa autora została usunięta, lecz styl komentarzy w kodzie nie pozostawiał wątpliwości. Zygmunt nie budował zwykłego programu. Tworzył cyfrową broń. Postanowiłam działać. Zadzowniłam do niego, lecz zamiast jego głosu usłszyałam tylko ten sygnał.',
     question: 'Co to jest?',
     answers: ['42'],
     extraComponent: 'audio',
@@ -44,14 +44,14 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   {
     title: '5. Włamanie do kryjówki',
     story:
-      'Magazyny 42! Tak nazywało się doskonale znane nam miejsce. Przejeżdzaliśmy obok tych ruin za każdym razem jak jechaliśmy razem do pracy. Nie mogłam zignorować tego tropu. Było późno w nocy, a budynek sprawiał wrażenie opuszczonego. Wewnątrz znalazłam dziesiątki monitorów wyświetlających mapy połączeń między sieciami na całym świecie. Na jednej ze ścian wisiał harmonogram oznaczony nazwą „Projekt Czarna Łapa”. Nim zdążyłam zrobić zdjęcie, usłyszałam kroki. Bardzo szybko włożyłam pendrive do komputera i wcisnełam "Kopiuj". Moim oczom ukazało się okno zabezpieczające przed kopiowaniem. Kroki stawały się coraz głośniejsze.',
+      'Magazyny 42! Tak nazywało się doskonale znane nam miejsce. Przejeżdzaliśmy obok tych ruin, za każdym razem jak jechaliśmy razem do pracy. Nie mogłam zignorować tego tropu. Było późno w nocy, a budynek sprawiał wrażenie opuszczonego. Wewnątrz znalazłam dziesiątki monitorów wyświetlających mapy połączeń między sieciami na całym świecie. Na jednej ze ścian wisiał harmonogram oznaczony nazwą „Projekt Czarna Łapa”. Nim zdążyłam zrobić zdjęcie, usłyszałam kroki. Bardzo szybko włożyłam pendrive do komputera i wcisnełam "Kopiuj". Moim oczom ukazało się okno zabezpieczające przed kopiowaniem. Kroki stawały się coraz głośniejsze.',
     question: '405K28934211L331<br>313231402E1S37749<br>9813K55568312A32',
     answers: ['Kleska'],
   },
   {
     title: '6. Przerażające odkrycie',
     story:
-      'Uciekłam. W ostatniej chwili udało mi wymknąć! "Stefania, kiedyś się doigrasz" - powtarzałam sama do siebie. To, co znajdowało się na pendrivie, nie dawało mi spać. Analiza plików ujawniła prawdziwy cel projektu. Wirus Feniks został zaprojektowany tak, aby po przeniknięciu do kluczowych sieci pozwalał Zygmuntowi przejmować uprawnienia administratorów i manipulować systemami. Nie znałam wszystkich technicznych szczegółów, ale jedno było jasne: skala zagrożenia była ogromna. Musiałam znaleźć Zygmunta, zanim zrobi coś nieodwracalnego. Zauważyłam, na telefonie sms informujący mnie o nieodsłuchanej wiadomości na poczcie głosowej. Niezrozumiałam ani słowa. Co to może być?',
+      'Uciekłam. W ostatniej chwili udało mi wymknąć! "Stefania, kiedyś się doigrasz" - powtarzałam sama do siebie. To, co znajdowało się na pendrivie, nie dawało mi spać. Analiza plików ujawniła prawdziwy cel projektu. Wirus "Czarna Łapa" został zaprojektowany tak, aby po przeniknięciu do kluczowych sieci pozwalał Zygmuntowi przejmować uprawnienia administratorów i manipulować systemami. Nie znałam wszystkich technicznych szczegółów, ale jedno było jasne: skala zagrożenia była ogromna. Musiałam znaleźć Zygmunta, zanim zrobi coś nieodwracalnego. Zauważyłam, na telefonie sms informujący mnie o nieodsłuchanej wiadomości na poczcie głosowej. Niezrozumiałam ani słowa. Co to może być?',
     question: 'Co to jest?',
     answers: ['organizacja'],
     extraComponent: 'audio',
@@ -83,7 +83,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   
   {
     title: '10. Pierwsze ostrzeżenie',
-    story: 'Kilka godzin później Zygmunt wystosował ultimatum do światowych przywódców i największych instytucji finansowych. Zażądał przekazania mu 100 miliardów dolarów w ciągu 87 godzin. W przeciwnym razie zapowiedział wywołanie globalnego chaosu za pomocą wirusa Feniks. Patrzyłam na ekran w całkowitym milczeniu. Wiedziałam, że gdzieś tam jest człowiek, którego kiedyś uważałam za przyjaciela, a teraz cały świat czekał na jego kolejny ruch. Na szczęście wiedziałam gdzie się znajdował i przekazałam informację odpowiednim służbom. Leżąc późnym wieczorem w łóżku, w moim starym płaszczu znalazłam starą nierozwiązaną zagadkę, którą kiedyś Zygmunt napisał mi dla zabawy',
+    story: 'Kilka godzin później Zygmunt wystosował ultimatum do światowych przywódców i największych instytucji finansowych. Zażądał przekazania mu 100 miliardów dolarów w ciągu 87 godzin. W przeciwnym razie zapowiedział wywołanie globalnego chaosu za pomocą wirusa "Czarna Łapa". Patrzyłam na ekran w całkowitym milczeniu. Wiedziałam, że gdzieś tam jest człowiek, którego kiedyś uważałam za przyjaciela, a teraz cały świat czekał na jego kolejny ruch. Na szczęście wiedziałam gdzie się znajdował i przekazałam informację odpowiednim służbom. Leżąc późnym wieczorem w łóżku, w na dnie szuflady szafki nocnej znalazłam starą nierozwiązaną zagadkę, którą kiedyś Zygmunt napisał mi dla zabawy',
     question: 'Jestem wysoki, gdy jestem nowy, i niski, gdy jestem stary. Daję światło, póki żyję, a lekki powiew może mnie zabije. Kim jestem??',
     answers: ['Świeca', 'Świeczka'],
   },
