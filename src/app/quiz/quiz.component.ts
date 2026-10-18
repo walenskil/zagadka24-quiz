@@ -1,21 +1,20 @@
-import { Component,  OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { QUIZ_QUESTIONS } from './quiz-data';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.scss']
+  styleUrls: ['./quiz.component.scss'],
 })
 export class QuizComponent implements OnDestroy {
   private currentQuestionIndex = 0;
   private wrongAnswerTimeout?: ReturnType<typeof setTimeout>;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   answer = '';
   showWrongAnswer = false;
-
 
   get currentQuestion() {
     return QUIZ_QUESTIONS[this.currentQuestionIndex];
@@ -26,7 +25,7 @@ export class QuizComponent implements OnDestroy {
   }
 
   onKlotskiComplete(event: boolean): void {
-    if(event) this.answer = 'ok';
+    if (event) this.answer = 'ok';
   }
 
   checkAnswer(): void {
@@ -36,7 +35,7 @@ export class QuizComponent implements OnDestroy {
 
     const normalizedAnswer = this.normalize(this.answer);
     const acceptedAnswers = this.currentQuestion.answers.map((item) =>
-      this.normalize(item)
+      this.normalize(item),
     );
 
     if (acceptedAnswers.includes(normalizedAnswer)) {
@@ -44,8 +43,8 @@ export class QuizComponent implements OnDestroy {
       this.showWrongAnswer = false;
       this.answer = '';
       this.currentQuestionIndex += 1;
-
-      if(this.currentQuestionIndex == 10) this.router.navigate(['/koniec']);
+      this.scrollTop()
+      if (this.currentQuestionIndex == 10) this.router.navigate(['/koniec']);
       return;
     }
 
@@ -55,6 +54,16 @@ export class QuizComponent implements OnDestroy {
       this.showWrongAnswer = false;
       this.wrongAnswerTimeout = undefined;
     }, 5000);
+  }
+
+  scrollTop() {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'auto',
+      });
+    }, 100);
   }
 
   ngOnDestroy(): void {
