@@ -1,7 +1,7 @@
-<main class="escape-room">
+<main class="escape-room" >
   <section class="puzzle" aria-labelledby="question">
     <div class="ambient-light" aria-hidden="true"></div>
-    <p class="room-label">{{ currentQuestion.title }}</p>
+    <p class="room-label" autofocus>{{ currentQuestion.title }}</p>
 
     <p class="story" [innerHTML]="currentQuestion.story"></p>
     <div style="width: 100%; display: flex; justify-content: center; margin-top: 4px; position: relative;">
@@ -34,7 +34,6 @@
           autocomplete="off"
           placeholder="..."
           required
-          autofocus
         />
         <button type="submit" [disabled]="!answer.trim()">Kontynuuj</button>
       </form>

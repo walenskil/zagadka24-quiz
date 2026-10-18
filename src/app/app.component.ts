@@ -5,37 +5,34 @@ import { filter } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   title = 'demoQuiz';
 
-
   constructor(private router: Router) {
-  this.router.events
-    .pipe(filter(event => event instanceof NavigationEnd))
-    .subscribe(() => {
-      window.scrollTo(0, 0);
-    });
-}
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        window.scrollTo(0, 0);
+      });
+  }
 
   ngOnInit() {
-  let lastTouchEnd = 0;
+    let lastTouchEnd = 0;
 
-  
+    document.addEventListener(
+      'touchend',
+      (event) => {
+        const now = Date.now();
 
-  document.addEventListener(
-    'touchend',
-    (event) => {
-      const now = Date.now();
+        if (now - lastTouchEnd <= 300) {
+          event.preventDefault();
+        }
 
-      if (now - lastTouchEnd <= 300) {
-        event.preventDefault();
-      }
-
-      lastTouchEnd = now;
-    },
-    { passive: false }
-  );
-}
+        lastTouchEnd = now;
+      },
+      { passive: false },
+    );
+  }
 }
