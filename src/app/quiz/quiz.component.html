@@ -25,7 +25,7 @@
       </p>
 
       <form class="answer-form" (ngSubmit)="checkAnswer()">
-        <label for="answer">Wpisz odpowiedź</label>
+        <label *ngIf="currentQuestion.extraComponent !== 'klotski'" for="answer">Wpisz odpowiedź</label>
         <input *ngIf="currentQuestion.extraComponent !== 'klotski'"
           id="answer"
           name="answer"
