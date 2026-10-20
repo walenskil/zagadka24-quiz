@@ -1,0 +1,27 @@
+<main class="welcome-page">
+  <div class="welcome-card">
+    <div class="logo-placeholder" aria-label="Miejsce na logo">
+      <img
+        src="assets/logo_gpt.png"
+        alt="Logo Quizu"
+        style="max-width: 100%; border-radius: 12px"
+      />
+    </div>
+    <h1>Zagadka42</h1>
+    <p class="eyebrow" (click)="losujLiterke()">
+      Super! Grasz w państwa i miasta =)
+    </p>
+   <table>
+  <tr *ngFor="let row of rows">
+    <td *ngFor="let znak of row"
+        [class.used]="znak.used"
+        [class.notUsed]="!znak.used">
+      {{ znak.name }}
+    </td>
+  </tr>
+</table>
+    <p class="btn" (click)="losujLiterke()" style="margin-top: 24px;">Losuj literkę</p>
+    <p class="letter">{{ char }}</p>
+    <div [ngClass]="{'btn': inProgress, 'disableBtn': !inProgress}" (click)="stop()">stop</div>
+  </div>
+</main>

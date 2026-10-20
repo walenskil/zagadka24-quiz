@@ -13,6 +13,8 @@ import { AudioComponent } from './quiz/audio/audio.component';
 import { PanoramaComponent } from './quiz/panorama/panorama.component';
 import { NgxView360Module } from '@egjs/ngx-view360';
 import { KoniecComponent } from './koniec/koniec.component';
+import { PanstwaMiastaComponent } from './panstwa-miasta/panstwa-miasta.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,12 @@ import { KoniecComponent } from './koniec/koniec.component';
     KlotskiComponent,
     AudioComponent,
     PanoramaComponent,
-    KoniecComponent
+    KoniecComponent,
+    PanstwaMiastaComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     AppRoutingModule,
     NgxView360Module 

@@ -4,10 +4,12 @@ import { HomeComponent } from './home/home.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { RegulaminComponent } from './regulamin/regulamin.component';
 import { KoniecComponent } from './koniec/koniec.component';
+import { PanstwaMiastaComponent } from './panstwa-miasta/panstwa-miasta.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'panstwaMiasta', component: PanstwaMiastaComponent},
   { path: 'regulamin', component: RegulaminComponent },
   { path: 'koniec', component: KoniecComponent},
   { path: 'quiz', component: QuizComponent },
