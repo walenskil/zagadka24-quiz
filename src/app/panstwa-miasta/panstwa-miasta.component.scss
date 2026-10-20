@@ -1,8 +1,8 @@
 .welcome-page {
   min-height: 100vh;
   display: grid;
+  padding: 8px;
   place-items: center;
-  padding: 24px;
   box-sizing: border-box;
   background: radial-gradient(ellipse at center, #30221b, transparent 48%), linear-gradient(145deg, #090b10, #111318 48%, #08090d);
   color: #e9dfcf;
@@ -11,7 +11,6 @@
 
 .welcome-card {
   width: min(100%, 620px);
-  padding: clamp(36px, 8vw, 72px);
   border: 1px solid #b1895342;
   background: #111215;
   box-shadow: 0 0 0 8px #b189530a, 0 28px 90px #000a;
