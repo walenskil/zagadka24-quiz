@@ -1,0 +1,29 @@
+<main class="welcome-page">
+  <div class="welcome-card">
+    <div class="logo-placeholder" aria-label="Miejsce na logo">
+      <img
+        src="assets/logo_gpt.png"
+        alt="Logo Quizu"
+        style="max-width: 100%; border-radius: 12px; max-height: 500px"
+      />
+    </div>
+    <div class="teams">
+      <div class="team" [ngClass]="{'active': !isBegin && teamPlaying == 1 }">Team 1</div>
+      <div class="arrows">{{ isBegin || isTimeRunning? '': teamPlaying == 1 ?'→':'←' }}</div>
+      <div class="team" [ngClass]="{'active': !isBegin && teamPlaying == 0 }">Team 2</div>
+    </div>
+    <p class="eyebrow">Super! Grasz w TABU =)</p>
+    <p class="btn" (click)="losujPytanie()" style="margin-top: 24px">
+     {{isBegin? "Team 1... Start!" : isTimeRunning ? "Losuj słowo" : "Zmiana Drużyn"}}
+    </p>
+    <div *ngIf="isTimeRunning">
+        <p>{{ timeLeft | date: "mm:ss" }}</p>
+        <p class="letter">{{ questions[los].wyraz | uppercase }}</p>
+        <p>{{ questions[los].z42_1 | uppercase }}</p>
+        <p>{{ questions[los].z42_2 | uppercase }}</p>
+        <p>{{ questions[los].z42_3 | uppercase }}</p>
+        <p>{{ questions[los].z42_4 | uppercase }}</p>
+        <p>{{ questions[los].z42_5 | uppercase }}</p>
+    </div>
+  </div>
+</main>

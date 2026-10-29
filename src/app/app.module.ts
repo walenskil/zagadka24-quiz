@@ -13,8 +13,9 @@ import { AudioComponent } from './quiz/audio/audio.component';
 import { PanoramaComponent } from './quiz/panorama/panorama.component';
 import { NgxView360Module } from '@egjs/ngx-view360';
 import { KoniecComponent } from './koniec/koniec.component';
-import { PanstwaMiastaComponent } from './panstwa-miasta/panstwa-miasta.component';
+import { PanstwaMiastaComponent } from './extras/panstwa-miasta/panstwa-miasta.component';
 import { CommonModule } from '@angular/common';
+import { TabuComponent } from './extras/tabu/tabu.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CommonModule } from '@angular/common';
     AudioComponent,
     PanoramaComponent,
     KoniecComponent,
-    PanstwaMiastaComponent
+    PanstwaMiastaComponent,
+    TabuComponent
   ],
   imports: [
     BrowserModule,
