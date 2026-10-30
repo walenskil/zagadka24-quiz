@@ -70,6 +70,7 @@ export const categories = [
   "Zespół muzyczny",
   "Gatunek muzyczny",
   "Tytuł piosenki",
+  "Program telewizyjny",
   "Coś okrągłego",
   "Coś czerwonego",
   "Coś, co pachnie",
