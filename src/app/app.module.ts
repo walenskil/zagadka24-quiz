@@ -16,6 +16,7 @@ import { KoniecComponent } from './koniec/koniec.component';
 import { PanstwaMiastaComponent } from './extras/panstwa-miasta/panstwa-miasta.component';
 import { CommonModule } from '@angular/common';
 import { TabuComponent } from './extras/tabu/tabu.component';
+import { WordsAroundComponent } from './extras/words-around/words-around.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TabuComponent } from './extras/tabu/tabu.component';
     PanoramaComponent,
     KoniecComponent,
     PanstwaMiastaComponent,
-    TabuComponent
+    TabuComponent,
+    WordsAroundComponent
   ],
   imports: [
     BrowserModule,

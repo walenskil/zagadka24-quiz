@@ -11,9 +11,9 @@ export class TabuComponent implements OnInit{
   los = 0;
   wykorzystane: Array<number> = [0];
   timer = 60
-  timeLeft = new Date().setHours(0, 0, this.timer, 99);
   showZmiana = false
   teamPlaying = 0
+  timeLeft = new Date().setHours(0, 0, this.timer, 99);
   isTimeRunning = false
   isBegin = true
 

@@ -6,6 +6,7 @@ import { RegulaminComponent } from './regulamin/regulamin.component';
 import { KoniecComponent } from './koniec/koniec.component';
 import { PanstwaMiastaComponent } from './extras/panstwa-miasta/panstwa-miasta.component';
 import { TabuComponent } from './extras/tabu/tabu.component';
+import { WordsAroundComponent } from './extras/words-around/words-around.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'tabu', component: TabuComponent },
   { path: 'regulamin', component: RegulaminComponent },
   { path: 'koniec', component: KoniecComponent },
+  { path: 'slowka', component: WordsAroundComponent},
   { path: 'quiz', component: QuizComponent },
   { path: '**', redirectTo: '/home' },
 ];

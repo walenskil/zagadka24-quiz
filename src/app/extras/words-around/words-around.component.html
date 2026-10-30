@@ -1,0 +1,31 @@
+<main class="welcome-page">
+  <div class="welcome-card">
+    <div class="logo-placeholder" aria-label="Miejsce na logo">
+      <img
+        src="assets/logo_gpt.png"
+        alt="Logo Quizu"
+        style="max-width: 100%; border-radius: 12px;"
+      />
+    </div>
+    <p class="eyebrow">Super! Grasz w "Słówka Literówka" =)</p>
+    <p class="btn" (click)="getNewCategory()" style="margin: 0px">
+      {{this.isBegin? "Start": this.isTimeRunning ?  'Gra w toku': 'Losuj kategorię'}}
+    </p>
+    <p class="letter" style="margin: 12px" [class.red]="!isTimeRunning &&  !this.isBegin">{{ category }}</p>
+    <p>{{ timeLeft | date: "mm:ss" }}</p>
+    <table>
+      <tr *ngFor="let row of rows">
+        <td
+            
+          *ngFor="let znak of row"
+          [class.used]="znak.used"
+          [class.notUsed]="!znak.used"
+        >
+        <span (click)="znak.used = true; resetTimer();">
+            {{ znak.name }}
+        </span>
+        </td>
+      </tr>
+    </table>
+  </div>
+</main>
