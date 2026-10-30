@@ -8,20 +8,22 @@
       />
     </div>
     <p class="eyebrow">Super! Grasz w "Słówka Literówka" =)</p>
-    <button class="btn" (click)="getNewCategory()" style="margin: 0px; z-index: 999; width: 100%;" >
-      {{this.isBegin? "Start": this.isTimeRunning ?  'Gra w toku': 'Losuj kategorię'}}
-    </button>
+    <div (click)="getNewCategory()" >
+        <button class="btn" style="margin: 0px; z-index: 999; width: 100%;" >
+            {{this.isBegin? "Start": this.isTimeRunning ?  'Gra w toku': 'Losuj kategorię'}}
+        </button>
+    </div>
     <p class="letter" style="margin: 12px" [class.red]="!isTimeRunning &&  !this.isBegin">{{ category }}</p>
     <p>{{ timeLeft | date: "mm:ss" }}</p>
     <table>
       <tr *ngFor="let row of rows">
         <td
-            
+             (click)="znak.used = true; resetTimer();"
           *ngFor="let znak of row"
           [class.used]="znak.used"
           [class.notUsed]="!znak.used"
         >
-        <span (click)="znak.used = true; resetTimer();">
+        <span>
             {{ znak.name }}
         </span>
         </td>
