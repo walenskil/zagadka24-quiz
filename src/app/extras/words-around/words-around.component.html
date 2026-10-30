@@ -1,31 +1,38 @@
 <main class="welcome-page">
   <div class="welcome-card">
-    <div class="logo-placeholder" aria-label="Miejsce na logo">
-      <img
-        src="assets/logo_gpt.png"
-        alt="Logo Quizu"
-        style="max-width: 100%; border-radius: 12px;"
-      />
+    <div class="logo-placeholder">
+      <img src="assets/logo_gpt.png" alt="Logo Quizu" />
     </div>
+
     <p class="eyebrow">Super! Grasz w "Słówka Literówka" =)</p>
-    <div (click)="getNewCategory()" >
-        <button class="btn" style="margin: 0px; z-index: 999; width: 100%;" >
-            {{isBegin? "Start": isTimeRunning ?  'Gra w toku': 'Losuj kategorię'}}
-        </button>
-    </div>
-    <p class="letter" style="margin: 12px" [class.red]="!isTimeRunning &&  !isBegin">{{ category }}</p>
-    <p>{{ timeLeft | date: "mm:ss" }}</p>
+
+    <button
+      type="button"
+      class="btn"
+      (click)="getNewCategory()"
+      [disabled]="isTimeRunning"
+    >
+      {{ isBegin ? "Start" : isTimeRunning ? "Gra w toku" : "Losuj kategorię" }}
+    </button>
+
+    <p class="letter" [class.red]="!isTimeRunning && !isBegin">
+      {{ category }}
+    </p>
+
+    <p>
+      {{ timeLeft | date: "mm:ss" : "UTC" }}
+    </p>
+
     <table>
       <tr *ngFor="let row of rows">
         <td
-             (click)="znak.used = true; resetTimer();"
-          *ngFor="let znak of row"
+          *ngFor="let znak of row; trackBy: trackByIndex"
           [class.used]="znak.used"
           [class.notUsed]="!znak.used"
         >
-        <span>
+          <span (click)="markAsUsed(znak)">
             {{ znak.name }}
-        </span>
+          </span>
         </td>
       </tr>
     </table>

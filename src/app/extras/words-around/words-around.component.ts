@@ -1,44 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { categories } from './categories';
+
+interface Letter {
+  name: string;
+  index: number;
+  used: boolean;
+}
 
 @Component({
   selector: 'app-words-around',
   templateUrl: './words-around.component.html',
   styleUrls: ['./words-around.component.scss'],
 })
-export class WordsAroundComponent {
+export class WordsAroundComponent implements OnDestroy {
   categories = categories;
+
   category = '-';
+
   timer = 15;
+
   timeLeft = new Date().setHours(0, 0, this.timer, 99);
+
   isTimeRunning = false;
   isBegin = true;
-  cd: any;
 
-  countDown() {
-    this.isBegin = false;
+  private cd?: ReturnType<typeof setInterval>;
 
-    this.cd = setInterval(() => {
-      this.timeLeft = this.timeLeft - 1000; // Subtract 1 second in milliseconds
-      if (new Date(this.timeLeft).getSeconds() <= 0) {
-        this.isTimeRunning = false;
-        clearInterval(this.cd);
-      }
-    }, 1000);
-
-
-  }
-
-  get rows() {
-    const size = 6;
-    const result = [];
-    for (let i = 0; i < this.tablicaZnakow.length; i += size) {
-      result.push(this.tablicaZnakow.slice(i, i + size));
-    }
-    return result;
-  }
-
-  tablicaZnakow = [
+  tablicaZnakow: Letter[] = [
     { name: 'A', index: 0, used: false },
     { name: 'B', index: 1, used: false },
     { name: 'C', index: 2, used: false },
@@ -63,24 +51,81 @@ export class WordsAroundComponent {
     { name: 'Z', index: 21, used: false },
   ];
 
-  resetTimer() {
-    this.timeLeft = new Date().setHours(0, 0, this.timer, 99);    
-    if(this.tablicaZnakow.every(e=> e.used)){
-      clearInterval(this.cd);
-      this.isTimeRunning = false
-      this.isBegin = true
+  get rows(): Letter[][] {
+    const size = 6;
+    const result: Letter[][] = [];
+
+    for (let i = 0; i < this.tablicaZnakow.length; i += size) {
+      result.push(this.tablicaZnakow.slice(i, i + size));
+    }
+
+    return result;
+  }
+
+  getNewCategory(): void {
+    if (this.isTimeRunning) {
+      return;
+    }
+
+    this.isBegin = false;
+    this.isTimeRunning = true;
+
+    clearInterval(this.cd);
+
+    this.category =
+      this.categories[Math.floor(Math.random() * this.categories.length)];
+
+    this.tablicaZnakow.forEach((letter) => {
+      letter.used = false;
+    });
+
+    this.resetClock();
+    this.startTimer();
+  }
+
+  private startTimer(): void {
+    this.cd = setInterval(() => {
+       this.timeLeft = this.timeLeft - 1000
+
+      if(new Date(this.timeLeft).getSeconds() <= 0) {
+        this.stopTimer();
+      }
+    }, 1000);
+  }
+
+  private stopTimer(): void {
+    clearInterval(this.cd);
+
+    this.isTimeRunning = false;
+  }
+
+  resetTimer(): void {
+    this.resetClock();
+  }
+
+  private resetClock(): void {
+      this.timeLeft = new Date().setHours(0, 0, this.timer, 0);
+  }
+
+  markAsUsed(letter: Letter): void {
+    letter.used = true;
+
+    this.resetTimer();
+
+    if (this.tablicaZnakow.every((x) => x.used)) {
+      this.stopTimer();
+
+      this.isBegin = true;
+
+      this.category = '-';
     }
   }
 
-  getNewCategory() {
-    if (!this.isTimeRunning) {
-      this.isTimeRunning = true
-      clearInterval(this.cd);
-      this.category =
-        this.categories[Math.floor(Math.random() * categories.length)];
-      this.timeLeft = new Date().setHours(0, 0, this.timer, 99);
-      this.tablicaZnakow.forEach((e) => (e.used = false));
-      this.countDown();
-    }
+  trackByIndex(index: number): number {
+    return index;
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.cd);
   }
 }

@@ -37,7 +37,7 @@ export class TabuComponent implements OnInit{
   losujPytanie() {
     if(!this.isTimeRunning){
       this.teamPlaying = (this.teamPlaying+1)%2
-      this.timeLeft = new Date().setHours(0, 0, this.timer, 99);
+      this.timeLeft = new Date().setHours(0, 0, this.timer, 0);
       this.countDown()
       this.isTimeRunning = !this.isTimeRunning
     }
