@@ -8,9 +8,9 @@
       />
     </div>
     <p class="eyebrow">Super! Grasz w "Słówka Literówka" =)</p>
-    <p class="btn" (click)="getNewCategory()" style="margin: 0px; z-index: 999;" >
+    <button class="btn" (click)="getNewCategory()" style="margin: 0px; z-index: 999; width: 100%;" >
       {{this.isBegin? "Start": this.isTimeRunning ?  'Gra w toku': 'Losuj kategorię'}}
-    </p>
+    </button>
     <p class="letter" style="margin: 12px" [class.red]="!isTimeRunning &&  !this.isBegin">{{ category }}</p>
     <p>{{ timeLeft | date: "mm:ss" }}</p>
     <table>
