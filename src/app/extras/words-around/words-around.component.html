@@ -26,11 +26,12 @@
     <table>
       <tr *ngFor="let row of rows">
         <td
+        (click)="markAsUsed(znak)"
           *ngFor="let znak of row; trackBy: trackByIndex"
           [class.used]="znak.used"
           [class.notUsed]="!znak.used"
         >
-          <span (click)="markAsUsed(znak)">
+          <span >
             {{ znak.name }}
           </span>
         </td>
