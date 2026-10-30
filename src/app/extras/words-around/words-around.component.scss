@@ -208,6 +208,8 @@ h1 {
   font: 700 12px "Segoe UI", sans-serif;
   letter-spacing: .18em;
   text-transform: uppercase;
+    touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .disableBtn {
