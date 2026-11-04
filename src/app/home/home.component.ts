@@ -26,10 +26,12 @@ export class HomeComponent implements OnInit {
   }
 
   public goToLastestQuestion() {
-    if(localStorage.getItem('FinishQuiz'))
-      this.router.navigate(['/koniec']);
-    else if(localStorage.getItem('latestQuestion')) 
-      this.router.navigate(['/quiz']);
+    setTimeout(() => {
+      if(localStorage.getItem('FinishQuiz'))
+        this.router.navigate(['/koniec']);
+      else if(localStorage.getItem('latestQuestion')) 
+        this.router.navigate(['/quiz']);
+    }, 0);
   }
 
   public startQuiz(): void {
