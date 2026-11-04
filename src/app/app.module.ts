@@ -17,6 +17,7 @@ import { PanstwaMiastaComponent } from './extras/panstwa-miasta/panstwa-miasta.c
 import { CommonModule } from '@angular/common';
 import { TabuComponent } from './extras/tabu/tabu.component';
 import { WordsAroundComponent } from './extras/words-around/words-around.component';
+import { CookieConsentComponent } from './cookies-consent/cookies-consent.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { WordsAroundComponent } from './extras/words-around/words-around.compone
     KoniecComponent,
     PanstwaMiastaComponent,
     TabuComponent,
-    WordsAroundComponent
+    WordsAroundComponent,
+    CookieConsentComponent
   ],
   imports: [
     BrowserModule,

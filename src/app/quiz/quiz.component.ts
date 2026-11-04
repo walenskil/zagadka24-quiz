@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./quiz.component.scss'],
 })
 export class QuizComponent implements OnDestroy {
-  private currentQuestionIndex = 0;
+  private currentQuestionIndex = localStorage.getItem('latestQuestion')
+    ? parseInt(localStorage.getItem('latestQuestion')!)
+    : 0;
   private wrongAnswerTimeout?: ReturnType<typeof setTimeout>;
 
   constructor(private router: Router) {}
@@ -43,8 +45,11 @@ export class QuizComponent implements OnDestroy {
       this.showWrongAnswer = false;
       this.answer = '';
       this.currentQuestionIndex += 1;
+      localStorage.setItem('latestQuestion', this.currentQuestionIndex.toString());
       this.scrollTop()
-      if (this.currentQuestionIndex == 10) this.router.navigate(['/koniec']);
+      if (this.currentQuestionIndex == 10) {
+        localStorage.setItem('FinishQuiz', 'true');
+        this.router.navigate(['/koniec']);}
       return;
     }
 

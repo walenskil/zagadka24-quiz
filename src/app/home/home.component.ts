@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   constructor(private router: Router) { }
 
   email = '';
@@ -17,12 +17,24 @@ export class HomeComponent {
     return emailRegex.test(this.email);
   }
 
+  ngOnInit(): void {
+    this.goToLastestQuestion();
+  }
+
   public openRegulamin(): void {
     this.router.navigate(['/regulamin']);
   }
 
+  public goToLastestQuestion() {
+    if(localStorage.getItem('FinishQuiz'))
+      this.router.navigate(['/koniec']);
+    else if(localStorage.getItem('latestQuestion')) 
+      this.router.navigate(['/quiz']);
+  }
+
   public startQuiz(): void {
     if (this.canStart) {
+     localStorage.setItem('email', this.email);
      this.router.navigate(['/quiz'], { queryParams: { email: this.email } });
     } 
   }
