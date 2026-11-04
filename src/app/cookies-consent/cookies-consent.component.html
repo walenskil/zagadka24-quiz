@@ -1,0 +1,16 @@
+<div class="cookie-overlay" *ngIf="isVisible">
+  <div class="cookie-popup">
+    <h3 class="header">🍪 Informacja o cookies</h3>
+
+    <p>
+      Ta aplikacja wykorzystuje pliki cookies w celu zapewnienia
+      prawidłowego funckjonalnego działania serwisu oraz poprawy komfortu użytkowania.
+      Kontynuując korzystanie z aplikacji wyrażasz zgodę na używanie
+      plików cookies zgodnie z naszą polityką prywatności.
+    </p>
+
+    <button (click)="acceptCookies()">
+      Rozumiem i akceptuję
+    </button>
+  </div>
+</div>
