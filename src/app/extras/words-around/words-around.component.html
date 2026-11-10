@@ -22,7 +22,7 @@
     <p>
       {{ timeLeft | date: "mm:ss" : "UTC" }}
     </p>
-
+    <div>
     <table>
       <tr *ngFor="let row of rows">
         <td
@@ -37,5 +37,6 @@
         </td>
       </tr>
     </table>
+    </div>
   </div>
 </main>

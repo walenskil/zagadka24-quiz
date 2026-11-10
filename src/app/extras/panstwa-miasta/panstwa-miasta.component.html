@@ -10,8 +10,10 @@
     <p class="eyebrow" (click)="losujLiterke()">
       Super! Grasz w państwa i miasta =)
     </p>
-   <table>
-  <tr *ngFor="let row of rows">
+    <div>
+
+      <table>
+        <tr *ngFor="let row of rows">
     <td *ngFor="let znak of row"
         [class.used]="znak.used"
         [class.notUsed]="!znak.used">
@@ -19,6 +21,7 @@
     </td>
   </tr>
 </table>
+</div>
     <p class="btn" (click)="losujLiterke()" style="margin-top: 24px;">Losuj literkę</p>
     <p class="letter">{{ char }}</p>
     <div [ngClass]="{'btn': inProgress, 'disableBtn': !inProgress}" (click)="stop()">stop</div>
