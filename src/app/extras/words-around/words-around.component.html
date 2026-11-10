@@ -23,20 +23,18 @@
       {{ timeLeft | date: "mm:ss" : "UTC" }}
     </p>
     <div id="tabelka">
-    <table>
-      <tr *ngFor="let row of rows">
-        <td
-        (click)="markAsUsed(znak)"
-          *ngFor="let znak of row; trackBy: trackByIndex"
-          [class.used]="znak.used"
-          [class.notUsed]="!znak.used"
-        >
-          <span >
+      <div class="board">
+        <div class="row" *ngFor="let row of rows">
+          <div
+            class="cell"
+            *ngFor="let znak of row"
+            [class.used]="znak.used"
+            [class.notUsed]="!znak.used"
+          >
             {{ znak.name }}
-          </span>
-        </td>
-      </tr>
-    </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>

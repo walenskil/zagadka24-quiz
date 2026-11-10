@@ -256,37 +256,27 @@ h1 {
     text-decoration: line-through;
 }
 
-table {
+.red{
+    border-color: red;
+    color: red
+}
+
+.board {
   border-collapse: collapse;
   border-radius: 10px;
   overflow: hidden;
   margin: 0 auto;
 }
 
-.red{
-    border-color: red;
-    color: red
-}
-
-th {
-  background-color: #a88653;
-  color: #eee4d4;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-tr {
+.row {
     display: flex;
+    gap: 2px;
+    font-size: 24px;
     justify-content: center;
 }
-th, td {
-        display: flex;
-    justify-content: center;
-    align-items: center;
-      font-size: 24px;
-    width: 32px;
-    margin: 1px;
-  padding: 10px;
+.cell {
+    width: 16px;
+  padding: 10px 16px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
