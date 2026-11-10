@@ -57,7 +57,7 @@ export class WordsAroundComponent implements OnDestroy, OnInit {
     { name: 'Z', index: 21, used: false },
   ];
 
-  rows: Letter[][]  = []
+  rows: Letter[][] = [];
 
   private buildRows(): Letter[][] {
     const size = 6;
@@ -114,9 +114,10 @@ export class WordsAroundComponent implements OnDestroy, OnInit {
   }
 
   markAsUsedChar(znak: Letter): void {
-  if (!this.isTimeRunning) {
-    return;
-  }
+    if (!this.isTimeRunning) {
+      return;
+    }
+    
     znak.used = true;
     this.resetClock();
 
