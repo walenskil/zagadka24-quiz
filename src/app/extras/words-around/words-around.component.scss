@@ -261,6 +261,10 @@ h1 {
     color: red
 }
 
+#tabelka{
+     pointer-events: none;
+}
+
 .board {
   border-collapse: collapse;
   border-radius: 10px;
@@ -270,6 +274,7 @@ h1 {
 }
 
 .row {
+     pointer-events: none;
     display: flex;
     gap: 2px;
     font-size: 24px;
