@@ -19,6 +19,8 @@ export class WordsAroundComponent implements OnDestroy {
   usedIndexes: number[] = [];
   timer = 15;
 
+  constructor() {this.buildRows();}
+
   timeLeft = new Date().setHours(0, 0, this.timer, 99);
 
   isTimeRunning = false;
@@ -51,7 +53,9 @@ export class WordsAroundComponent implements OnDestroy {
     { name: 'Z', index: 21, used: false },
   ];
 
-  get rows(): Letter[][] {
+  rows: Letter[][]  = []
+
+  private buildRows(): Letter[][] {
     const size = 6;
     const result: Letter[][] = [];
 
@@ -119,10 +123,6 @@ export class WordsAroundComponent implements OnDestroy {
         this.category = '-';
       }
     }, 0);
-  }
-
-  trackByIndex(index: number): number {
-    return index;
   }
 
   ngOnDestroy(): void {
