@@ -97,21 +97,16 @@ export class WordsAroundComponent implements OnDestroy {
   }
 
   private stopTimer(): void {
-    clearInterval(this.cd);
-
     this.isTimeRunning = false;
+    clearInterval(this.cd);
   }
 
   private resetClock(): void {
     this.timeLeft = new Date().setHours(0, 0, this.timer, 0);
   }
 
-  markAsUsed(): void {
-  
-
-    this.resetClock();
-
- 
+  markAsUsedChar(znak: Letter): void {
+    znak.used = true;
   }
 
   trackByIndex(index: number): number {
