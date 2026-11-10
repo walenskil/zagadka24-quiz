@@ -105,13 +105,10 @@ export class WordsAroundComponent implements OnDestroy {
     this.timeLeft = new Date().setHours(0, 0, this.timer, 0);
   }
 
-  markAsUsedChar(znak: Letter, event: MouseEvent): void {
-    console.log('CELL');
-    console.log(event.target);
-    console.log(event.currentTarget);
-
-    event.stopPropagation();
-
+  markAsUsedChar(znak: Letter): void {
+  if (!this.isTimeRunning) {
+    return;
+  }
     znak.used = true;
     this.resetClock();
 

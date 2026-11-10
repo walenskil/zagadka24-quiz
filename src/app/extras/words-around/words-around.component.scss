@@ -98,7 +98,7 @@ h1 {
   text-transform: uppercase;
 }
 
-.welcome-form > input {
+.welcome-form>input {
   width: 100%;
   min-height: 54px;
   box-sizing: border-box;
@@ -113,11 +113,11 @@ h1 {
   transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.welcome-form > input::placeholder {
+.welcome-form>input::placeholder {
   color: #5e5a52;
 }
 
-.welcome-form > input:focus {
+.welcome-form>input:focus {
   border-color: #a88653;
   box-shadow: 0 0 0 3px #a886531f;
 }
@@ -215,7 +215,7 @@ h1 {
   font: 700 12px "Segoe UI", sans-serif;
   letter-spacing: .18em;
   text-transform: uppercase;
-    touch-action: manipulation;
+  touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -234,56 +234,67 @@ h1 {
   text-transform: uppercase;
 }
 
-.btn :not(:disabled):hover { background: #986f3b61; color: #fff2d9; }
-.btn :disabled { border-color: #393630; background: #2a272259; color: #686258; cursor: not-allowed; }
+.btn :not(:disabled):hover {
+  background: #986f3b61;
+  color: #fff2d9;
+}
+
+.btn :disabled {
+  border-color: #393630;
+  background: #2a272259;
+  color: #686258;
+  cursor: not-allowed;
+}
 
 .letter {
-    background-color: black;
-    border: 1px solid #a88653;
-    border-radius: 92px;
-    padding: 12px;
-    margin: 36px auto;
-    line-height: 34px;
-    font-size: 30px;
+  background-color: black;
+  border: 1px solid #a88653;
+  border-radius: 92px;
+  padding: 12px;
+  margin: 36px auto;
+  line-height: 34px;
+  font-size: 30px;
 }
+
 .notUsed {
-    color: #a88653;
+  color: #a88653;
 }
+
 .used {
 
-    color:  #503606;
-    background-color: #ffd9d9;
-    text-decoration: line-through;
+  color: #503606;
+  background-color: #ffd9d9;
+  text-decoration: line-through;
 }
 
-.red{
-    border-color: red;
-    color: red
+.red {
+  border-color: red;
+  color: red
 }
 
-#tabelka{
-     pointer-events: none;
+#tabelka {
+  pointer-events: none;
 }
 
 .board {
   border-collapse: collapse;
   border-radius: 10px;
   overflow: hidden;
-   pointer-events: none;
+  pointer-events: none;
   margin: 0 auto;
 }
 
 .row {
-     pointer-events: none;
-    display: flex;
-    gap: 2px;
-    font-size: 24px;
-    justify-content: center;
+  pointer-events: none;
+  display: flex;
+  gap: 2px;
+  font-size: 24px;
+  justify-content: center;
 }
+
 .cell {
-    width: 16px;
+  width: 16px;
   padding: 10px 16px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
-
