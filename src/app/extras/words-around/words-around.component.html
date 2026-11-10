@@ -24,7 +24,7 @@
     <p>
       {{ timeLeft | date: "mm:ss" : "UTC" }}
     </p>
-    <div id="tabelka">
+    <div id="tabelka" *ngIf="!isPause">
       <div class="board">
         <div class="row" *ngFor="let row of rows">
           <div
@@ -38,6 +38,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div *ngIf="isPause">
+      PAUZA
     </div>
   </div>
 </main>
