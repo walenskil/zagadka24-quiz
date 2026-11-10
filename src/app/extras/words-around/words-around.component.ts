@@ -106,8 +106,16 @@ export class WordsAroundComponent implements OnDestroy {
   }
 
   markAsUsedChar(znak: Letter): void {
+
+    znak.used = true;
+    this.resetClock();
+
     setTimeout(() => {
-      znak.used = true;
+      if (this.tablicaZnakow.every((x) => x.used)) {
+        this.stopTimer();
+        this.isBegin = true;
+        this.category = '-';
+      }
     }, 0);
   }
 

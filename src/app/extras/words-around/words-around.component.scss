@@ -265,6 +265,7 @@ h1 {
   border-collapse: collapse;
   border-radius: 10px;
   overflow: hidden;
+   pointer-events: none;
   margin: 0 auto;
 }
 
@@ -280,3 +281,4 @@ h1 {
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
+
