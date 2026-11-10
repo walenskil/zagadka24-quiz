@@ -106,7 +106,9 @@ export class WordsAroundComponent implements OnDestroy {
   }
 
   markAsUsedChar(znak: Letter): void {
-    znak.used = true;
+    setTimeout(() => {
+      znak.used = true;
+    }, 0);
   }
 
   trackByIndex(index: number): number {
