@@ -114,10 +114,10 @@ export class WordsAroundComponent implements OnDestroy, OnInit {
   }
 
   markAsUsedChar(znak: Letter): void {
-    if (!this.isTimeRunning) {
+    if (!this.isTimeRunning || znak.used) {
       return;
     }
-    
+
     znak.used = true;
     this.resetClock();
 
