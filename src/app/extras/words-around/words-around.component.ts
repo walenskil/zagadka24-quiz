@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { categories } from './categories';
 
 interface Letter {
@@ -12,19 +12,23 @@ interface Letter {
   templateUrl: './words-around.component.html',
   styleUrls: ['./words-around.component.scss'],
 })
-export class WordsAroundComponent implements OnDestroy {
+export class WordsAroundComponent implements OnDestroy, OnInit {
   categories = categories;
 
   category = '-';
   usedIndexes: number[] = [];
   timer = 15;
 
-  constructor() {this.buildRows();}
+  constructor() {}
 
   timeLeft = new Date().setHours(0, 0, this.timer, 99);
 
   isTimeRunning = false;
   isBegin = true;
+
+  ngOnInit(): void {
+    this.rows = this.buildRows();
+  }
 
   private cd?: ReturnType<typeof setInterval>;
 
