@@ -30,7 +30,7 @@
             *ngFor="let znak of row"
             [class.used]="znak.used"
             [class.notUsed]="!znak.used"
-            (click)="markAsUsed(znak)"
+            (click)="markAsUsed(znak); $event.stopPropagation()"
           >
             {{ znak.name }}
           </div>
