@@ -16,7 +16,7 @@ export class WordsAroundComponent implements OnDestroy {
   categories = categories;
 
   category = '-';
-
+  usedIndexes: number[] = [];
   timer = 15;
 
   timeLeft = new Date().setHours(0, 0, this.timer, 99);
@@ -71,10 +71,15 @@ export class WordsAroundComponent implements OnDestroy {
     this.isTimeRunning = true;
 
     clearInterval(this.cd);
-
+    let idx: number; 
+    do
+    idx = Math.floor(Math.random() * this.categories.length)
+    while (this.usedIndexes.includes(idx));
+    
     this.category =
-      this.categories[Math.floor(Math.random() * this.categories.length)];
+      this.categories[idx];
 
+    this.usedIndexes.push(idx);
     this.tablicaZnakow.forEach((letter) => {
       letter.used = false;
     });
