@@ -2,6 +2,8 @@
   <div class="welcome-card">
     <div class="logo-placeholder">
       <img src="assets/logo_gpt.png" alt="Logo Quizu" />
+        <img src="assets/pause.png" *ngIf="!isPause && !isBegin && isTimeRunning" alt="Pause" class="iconPlayPause" (click)="togglePause()"/>
+        <img src="assets/play.png" *ngIf="isPause && !isBegin && !isTimeRunning" alt="Play" class="iconPlayPause" (click)="togglePause()"/>
     </div>
 
     <p class="eyebrow">Super! Grasz w "Słówka Literówka" =)</p>
@@ -12,10 +14,10 @@
       (click)="getNewCategory()"
       [disabled]="isTimeRunning"
     >
-      {{ isBegin ? "Start" : isTimeRunning ? "Gra w toku" : "Losuj kategorię" }}
+      {{ isBegin ? "Start" : isTimeRunning || isPause ? "Gra w toku" : "Losuj kategorię" }}
     </button>
 
-    <p class="letter" [class.red]="!isTimeRunning && !isBegin">
+    <p class="letter" [class.red]="!isTimeRunning && !isBegin && !isPause" [class.grey]="isPause">
       {{ category }}
     </p>
 

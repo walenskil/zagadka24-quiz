@@ -296,3 +296,19 @@ h1 {
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
+
+.iconPlayPause {
+  position: absolute;
+  height: 40px;
+  cursor: pointer;
+  top: 10px;
+  right: 10px;
+  background-color: #dfc89f;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.grey{
+    border-color: grey;
+  color: grey
+}

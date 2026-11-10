@@ -16,6 +16,7 @@ export class WordsAroundComponent implements OnDestroy, OnInit {
   categories = categories;
 
   category = '-';
+  isPause = false;
   usedIndexes: number[] = [];
   timer = 15;
 
@@ -95,6 +96,9 @@ export class WordsAroundComponent implements OnDestroy, OnInit {
   }
 
   private startTimer(): void {
+    if(this.isPause) {
+      this.isTimeRunning = true;
+    }
     this.cd = setInterval(() => {
       this.timeLeft = this.timeLeft - 1000;
 
@@ -133,4 +137,19 @@ export class WordsAroundComponent implements OnDestroy, OnInit {
   ngOnDestroy(): void {
     clearInterval(this.cd);
   }
+
+  togglePause(): void {
+    if (this.isPause) {
+      this.startTimer();
+    } else {
+      this.stopTimer();
+    }
+    this.isPause = !this.isPause;
+  }
+
+  stopGame(): void {
+    this.stopTimer();
+  }
+
+
 }
