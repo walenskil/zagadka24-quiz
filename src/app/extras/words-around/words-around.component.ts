@@ -102,25 +102,16 @@ export class WordsAroundComponent implements OnDestroy {
     this.isTimeRunning = false;
   }
 
-  resetTimer(): void {
-    this.resetClock();
-  }
-
   private resetClock(): void {
     this.timeLeft = new Date().setHours(0, 0, this.timer, 0);
   }
 
-  markAsUsed(letter: Letter): void {
-    letter.used = true;
+  markAsUsed(): void {
+  
 
-    this.resetTimer();
+    this.resetClock();
 
-    setTimeout(() => {
-    if (this.tablicaZnakow.every((x) => x.used)) {
-      this.stopTimer();
-      this.isBegin = true;
-      this.category = '-';
-    }}, 0);
+ 
   }
 
   trackByIndex(index: number): number {
