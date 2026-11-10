@@ -71,13 +71,11 @@ export class WordsAroundComponent implements OnDestroy {
     this.isTimeRunning = true;
 
     clearInterval(this.cd);
-    let idx: number; 
-    do
-    idx = Math.floor(Math.random() * this.categories.length)
+    let idx: number;
+    do idx = Math.floor(Math.random() * this.categories.length);
     while (this.usedIndexes.includes(idx));
-    
-    this.category =
-      this.categories[idx];
+
+    this.category = this.categories[idx];
 
     this.usedIndexes.push(idx);
     this.tablicaZnakow.forEach((letter) => {
@@ -90,9 +88,9 @@ export class WordsAroundComponent implements OnDestroy {
 
   private startTimer(): void {
     this.cd = setInterval(() => {
-       this.timeLeft = this.timeLeft - 1000
+      this.timeLeft = this.timeLeft - 1000;
 
-      if(new Date(this.timeLeft).getSeconds() <= 0) {
+      if (new Date(this.timeLeft).getSeconds() <= 0) {
         this.stopTimer();
       }
     }, 1000);
@@ -109,7 +107,7 @@ export class WordsAroundComponent implements OnDestroy {
   }
 
   private resetClock(): void {
-      this.timeLeft = new Date().setHours(0, 0, this.timer, 0);
+    this.timeLeft = new Date().setHours(0, 0, this.timer, 0);
   }
 
   markAsUsed(letter: Letter): void {
@@ -117,13 +115,12 @@ export class WordsAroundComponent implements OnDestroy {
 
     this.resetTimer();
 
+    setTimeout(() => {
     if (this.tablicaZnakow.every((x) => x.used)) {
       this.stopTimer();
-
       this.isBegin = true;
-
       this.category = '-';
-    }
+    }}, 0);
   }
 
   trackByIndex(index: number): number {
