@@ -1,0 +1,25 @@
+<main class="welcome-page">
+  <div class="welcome-card">
+    <div class="logo-placeholder" aria-label="Miejsce na logo">
+      <img
+        src="assets/logo_gpt.png"
+        alt="Logo Quizu"
+        style="max-width: 100%; border-radius: 12px; max-height: 500px"
+      />
+    </div>
+    <div style="padding: 20px;">
+      <div class="welcome-form">
+        <input
+          type="text"
+          placeholder="Wpisz swoje imię"
+          [(ngModel)]="playerName"
+          (keyup.enter)="startGame()"
+        />
+        <button (click)="startGame()">Rozpocznij grę</button>
+        <span class="socket">
+            Id: {{socketId | lowercase}}
+        </span>
+      </div>
+    </div>
+  </div>
+</main>
