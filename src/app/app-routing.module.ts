@@ -7,6 +7,7 @@ import { KoniecComponent } from './koniec/koniec.component';
 import { PanstwaMiastaComponent } from './extras/panstwa-miasta/panstwa-miasta.component';
 import { TabuComponent } from './extras/tabu/tabu.component';
 import { WordsAroundComponent } from './extras/words-around/words-around.component';
+import { MafiaComponent } from './extras/mafia/mafia.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'regulamin', component: RegulaminComponent },
   { path: 'koniec', component: KoniecComponent },
   { path: 'slowka', component: WordsAroundComponent},
+  { path: 'mafia', component: MafiaComponent },
+  { path: 'mafia/:socketId', component: MafiaComponent },
   { path: 'quiz', component: QuizComponent },
   { path: '**', redirectTo: '/home' },
 ];

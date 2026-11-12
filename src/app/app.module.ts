@@ -18,6 +18,7 @@ import { CommonModule } from '@angular/common';
 import { TabuComponent } from './extras/tabu/tabu.component';
 import { WordsAroundComponent } from './extras/words-around/words-around.component';
 import { CookieConsentComponent } from './cookies-consent/cookies-consent.component';
+import { MafiaComponent } from './extras/mafia/mafia.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CookieConsentComponent } from './cookies-consent/cookies-consent.compon
     PanstwaMiastaComponent,
     TabuComponent,
     WordsAroundComponent,
-    CookieConsentComponent
+    CookieConsentComponent,
+    MafiaComponent
   ],
   imports: [
     BrowserModule,
