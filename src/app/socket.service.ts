@@ -10,7 +10,7 @@ export class SocketService {
     constructor(
       
     ) {
-        this.socket = io('http://localhost:3500'); // Connect to Socket.IO server
+        this.socket = io('http://83.168.90.196:3500'); // Connect to Socket.IO server
     }
 
     // Method to send message to the server
