@@ -10,6 +10,17 @@
   font-family: "Segoe UI", sans-serif;
 }
 
+.qr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+}
+
+.active{
+    color: #dfc89f;
+}
+
 .welcome-card {
      padding: 8px;
   width: min(100%, 620px);
@@ -49,6 +60,8 @@
 }
 
 .eyebrow {
+    display: grid;
+    justify-content: center;
   margin: 0 0 12px;
   color: #a88653;
   font-size: 11px;

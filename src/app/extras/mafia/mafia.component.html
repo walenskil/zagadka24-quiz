@@ -7,19 +7,65 @@
         style="max-width: 100%; border-radius: 12px; max-height: 500px"
       />
     </div>
-    <div style="padding: 20px;">
+    <p class="eyebrow">Super! Grasz w Mafię | id: {{ socketId }}</p>
+    <div
+      style="padding: 20px"
+      *ngIf="myUser == undefined || myUser.type == 'none'"
+    >
       <div class="welcome-form">
+        <div class="qr" *ngIf="!isParam">
+          <qrcode
+            [qrdata]="'https://www.zagadka42.pl/mafia/' + socketId"
+            [width]="128"
+            [errorCorrectionLevel]="'M'"
+            class="qr"
+          ></qrcode>
+        </div>
         <input
+          *ngIf="!isJoined"
           type="text"
           placeholder="Wpisz swoje imię"
           [(ngModel)]="playerName"
-          (keyup.enter)="startGame()"
         />
-        <button (click)="startGame()">Rozpocznij grę</button>
-        <span class="socket">
-            Id: {{socketId | lowercase}}
-        </span>
+        <button
+          *ngIf="myUser?.role != 'member'"
+          (click)="startGame()"
+          [disabled]="!playerName || playerName.length < 1 || users.length == 1"
+        >
+          {{
+            users.length >= 1
+              ? "Rozpocznij grę"
+              : socketId
+                ? "Dołącz do gry"
+                : "Utwórz grę"
+          }}
+        </button>
+        <div *ngIf="!isStarted && myUser?.role == 'Miasto'">
+          Poczekaj na rozpoczęcie gry i przypisanie roli
+        </div>
+        <div *ngIf="users.length > 0">
+          <h3>Gracze w pokoju:</h3>
+          <ul>
+            <li
+              *ngFor="let user of users"
+              [class.active]="user.username == playerName"
+            >
+              {{ user.username }}
+              {{ user.role == "owner" ? "(Właściciel)" : "" }}
+            </li>
+          </ul>
+        </div>
       </div>
+    </div>
+    <div class="welcome-form" *ngIf="myUser?.type != 'none'">
+      <p class="eyebrow">
+        <img src="assets/Mafia.jpg" *ngIf="myUser?.type === 'Mafia'"/>
+        <img src="assets/Miasto.jpg" *ngIf="myUser?.type === 'Miasto'"/>
+        <img src="assets/Mistrz.jpg" *ngIf="myUser?.type === 'Mistrz'"/>
+      </p>
+      <button (click)="startGame()" *ngIf="myUser?.type == 'Mistrz'">
+        Uruchom kolejna gre
+      </button>
     </div>
   </div>
 </main>

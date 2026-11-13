@@ -19,6 +19,8 @@ import { TabuComponent } from './extras/tabu/tabu.component';
 import { WordsAroundComponent } from './extras/words-around/words-around.component';
 import { CookieConsentComponent } from './cookies-consent/cookies-consent.component';
 import { MafiaComponent } from './extras/mafia/mafia.component';
+import { QRCodeModule } from '@le2xx/angularx-qrcode';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { MafiaComponent } from './extras/mafia/mafia.component';
   ],
   imports: [
     BrowserModule,
+    QRCodeModule, 
     CommonModule,
     FormsModule,
     AppRoutingModule,
