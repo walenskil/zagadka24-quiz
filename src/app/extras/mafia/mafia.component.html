@@ -40,7 +40,7 @@
                 : "Utwórz grę"
           }}
         </button>
-        <div *ngIf="!isStarted && myUser?.role == 'Miasto'">
+        <div *ngIf="!isStarted && myUser?.role == 'member'">
           Poczekaj na rozpoczęcie gry i przypisanie roli
         </div>
         <div *ngIf="users.length > 0">
