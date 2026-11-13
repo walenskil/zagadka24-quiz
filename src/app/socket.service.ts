@@ -10,7 +10,7 @@ export class SocketService {
     constructor(
       
     ) {
-        this.socket = io('https://83.168.90.196:3500'); // Connect to Socket.IO server
+        this.socket = io('https://www.zagadka42.pl:3500'); // Connect to Socket.IO server
     }
 
     // Method to send message to the server
