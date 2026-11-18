@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -20,7 +19,9 @@ import { WordsAroundComponent } from './extras/words-around/words-around.compone
 import { CookieConsentComponent } from './cookies-consent/cookies-consent.component';
 import { MafiaComponent } from './extras/mafia/mafia.component';
 import { QRCodeModule } from '@le2xx/angularx-qrcode';
-
+import { provideHttpClient } from '@angular/common/http';
+import { CdkDrag, DragDropModule } from '@angular/cdk/drag-drop';
+import { MusicAppComponent } from './extras/music-app/music-app.component';
 
 @NgModule({
   declarations: [
@@ -37,17 +38,19 @@ import { QRCodeModule } from '@le2xx/angularx-qrcode';
     TabuComponent,
     WordsAroundComponent,
     CookieConsentComponent,
-    MafiaComponent
+    MafiaComponent,
+    MusicAppComponent
   ],
   imports: [
     BrowserModule,
     QRCodeModule, 
     CommonModule,
+    DragDropModule,
     FormsModule,
     AppRoutingModule,
     NgxView360Module 
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

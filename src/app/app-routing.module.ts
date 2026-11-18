@@ -8,6 +8,7 @@ import { PanstwaMiastaComponent } from './extras/panstwa-miasta/panstwa-miasta.c
 import { TabuComponent } from './extras/tabu/tabu.component';
 import { WordsAroundComponent } from './extras/words-around/words-around.component';
 import { MafiaComponent } from './extras/mafia/mafia.component';
+import { MusicAppComponent } from './extras/music-app/music-app.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'tabu', component: TabuComponent },
   { path: 'regulamin', component: RegulaminComponent },
   { path: 'koniec', component: KoniecComponent },
+  { path: 'kiedysToBylo', component: MusicAppComponent },
   { path: 'slowka', component: WordsAroundComponent},
   { path: 'mafia', component: MafiaComponent },
   { path: 'mafia/:socketId', component: MafiaComponent },
