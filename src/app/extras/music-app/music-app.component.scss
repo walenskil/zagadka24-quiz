@@ -1,4 +1,5 @@
 .welcome-page {
+  overflow: hidden;
   min-height: 100vh;
   display: grid;
   padding: 8px;
@@ -9,6 +10,9 @@
   font-family: "Segoe UI", sans-serif;
 }
 
+main {
+  overflow: hidden;
+}
 .welcome-card {
   padding: 8px;
   width: min(100%, 620px);
@@ -85,6 +89,8 @@ table {
   border-radius: 10px;
   overflow: hidden;
   margin: 0 auto;
+   -webkit-user-select: none; /* Wymagane dla Safari */
+  user-select: none;         /* Standard dla nowoczesnych przeglądarek */
 }
 
 th {
@@ -99,6 +105,8 @@ th {
 tr {
   display: flex;
   justify-content: center;
+   -webkit-user-select: none; /* Wymagane dla Safari */
+  user-select: none;         /* Standard dla nowoczesnych przeglądarek */
 }
 
 th,
@@ -106,6 +114,8 @@ td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+   -webkit-user-select: none; /* Wymagane dla Safari */
+  user-select: none;         /* Standard dla nowoczesnych przeglądarek */
 }
 
 .gold {
