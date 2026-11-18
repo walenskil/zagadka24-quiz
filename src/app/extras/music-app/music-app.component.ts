@@ -69,10 +69,10 @@ export class MusicAppComponent {
     if (!check) {
       this.playersList[this.playerIndex].songList[i].dragable = false;
       this.playersList[this.playerIndex].songList[i].isWrong = true;
+      this.isVerificated = true;
       setTimeout(() => {
         this.playersList[this.playerIndex].songList.splice(i, 1);
         this.canNextPlayer = true;
-        this.isVerificated = true;
       }, 3000);
     } else {
       this.playersList[this.playerIndex].goodAnswers++;

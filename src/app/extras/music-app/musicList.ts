@@ -1073,8 +1073,8 @@ export const musicList = [
   {"rok":1996,"tytuł":"Ruchome piaski","wykonawca":"Varius Manx","origin":"polski"},
   {"rok":1996,"tytuł":"Mówią, że miłość mieszka w niebie","wykonawca":"Maanam","origin":"polski"},
   {"rok":1996,"tytuł":"Między ciszą a ciszą","wykonawca":"Grzegorz Turnau","origin":"polski"},
-  {"rok":1996,"tytuł":"Sama","wykonawca":"Justyna Steczkowska","origin":"polski"},
-  {"rok":1996,"tytuł":"Łatwopalni","wykonawca":"Maryla Rodowicz","origin":"polski"},
+  {"rok":1996,"tytuł":"Makumba","wykonawca":"Big Cyc","origin":"polski"},
+  {"rok":1996,"tytuł":"Orła cień","wykonawca":"Varius Manx","origin":"polski"},
 
   {"rok":1997,"tytuł":"Candle in the Wind 1997","wykonawca":"Elton John","origin":"zagraniczny"},
   {"rok":1997,"tytuł":"You Were Meant for Me","wykonawca":"Jewel","origin":"zagraniczny"},

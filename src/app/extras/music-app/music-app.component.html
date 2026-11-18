@@ -50,7 +50,7 @@
         {{ 1960 }}
       </div>
       <div *ngIf="!isVerificated">  
-        <button class="green" (click)="confirm()">Zatwierdź</button>
+        <button class="green" (click)="confirm()" [disabled]="this.currentTrack?.isWrong">Zatwierdź</button>
       </div>
       <div *ngIf="canNextPlayer" class="welcome-form"> 
         <span style="font-size: 12px;">{{this.currentTrack?.artistName + ' ' + this.currentTrack?.trackName}}</span> 
