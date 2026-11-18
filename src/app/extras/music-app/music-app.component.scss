@@ -150,14 +150,22 @@ td {
 }
 
 .green {
-  border-color: green;
-  background-color: lightgreen;
-  color: black;
+  margin-bottom: 20px;
   width: 100%;
   min-height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
+  border: 1px solid #61a853;
+  border-radius: 2px;
+  background: #6f4f2b3b;
+  color: #61a853;
+  cursor: pointer;
+  font: 700 12px "Segoe UI", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
 }
 
 .wrong {
