@@ -52,7 +52,8 @@
       <div *ngIf="!isVerificated">  
         <button class="green" (click)="confirm()">Zatwierdź</button>
       </div>
-      <div *ngIf="canNextPlayer" class="welcome-form">  
+      <div *ngIf="canNextPlayer" class="welcome-form"> 
+        <span style="font-size: 12px;">{{this.currentTrack?.artistName + ' ' + this.currentTrack?.trackName}}</span> 
         <button (click)="nextPlayer()">Kolejny gracz</button>
       </div>
     </div>

@@ -682,8 +682,8 @@ export const musicList = [
   {"rok":1961,"tytuł":"You Don't Know","wykonawca":"Helen Shapiro","origin":"zagraniczny"},
   {"rok":1961,"tytuł":"Where the Boys Are","wykonawca":"Connie Francis","origin":"zagraniczny"},
   {"rok":1961,"tytuł":"Jadą wozy kolorowe","wykonawca":"Maryla Rodowicz","origin":"polski"},
-  {"rok":1961,"tytuł":"Wala twist","wykonawca":"Helena Majdaniec","origin":"polski"},
-  {"rok":1961,"tytuł":"Cicha woda","wykonawca":"Zbigniew Kurtycz","origin":"polski"},
+  {"rok":1961,"tytuł":"Tango Milonga","wykonawca":"Mieczysław Fogg","origin":"polski"},
+  {"rok":1961,"tytuł":"Dla Ciebie miły","wykonawca":"Violetta Villas","origin":"polski"},
 
   {"rok":1962,"tytuł":"Love Me Do","wykonawca":"The Beatles","origin":"zagraniczny"},
   {"rok":1962,"tytuł":"I Can't Stop Loving You","wykonawca":"Ray Charles","origin":"zagraniczny"},
@@ -737,7 +737,7 @@ export const musicList = [
   {"rok":1965,"tytuł":"Mr. Tambourine Man","wykonawca":"The Byrds","origin":"zagraniczny"},
   {"rok":1965,"tytuł":"Stop! In the Name of Love","wykonawca":"The Supremes","origin":"zagraniczny"},
   {"rok":1965,"tytuł":"The Sound of Silence","wykonawca":"Simon & Garfunkel","origin":"zagraniczny"},
-  {"rok":1965,"tytuł":"Dziwny jest ten świat","wykonawca":"Czesław Niemen","origin":"polski"},
+  {"rok":1967,"tytuł":"Dziwny jest ten świat","wykonawca":"Czesław Niemen","origin":"polski"},
   {"rok":1965,"tytuł":"Kwiaty we włosach","wykonawca":"Czerwone Gitary","origin":"polski"},
   {"rok":1965,"tytuł":"Nie zadzieraj nosa","wykonawca":"Czerwone Gitary","origin":"polski"},
 
