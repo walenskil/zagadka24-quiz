@@ -1,0 +1,89 @@
+<main class="welcome-page">
+  <div class="welcome-card" *ngIf="isGameStart">
+    <div class="logo-placeholder" aria-label="Miejsce na logo">
+      <img
+        src="assets/logo_gpt.png"
+        alt="Logo Quizu"
+        style="max-width: 100%; border-radius: 12px; max-height: 80px"
+      />
+    </div>
+    <div class="welcome-form">
+      <span style="font-size: 12px;">Turę rozgrywa:</span>
+      <p class="player">{{playersList[playerIndex].playerName}}</p>
+      <div>
+        <button (click)="getMusic()" [disabled]="isPlaying || !isVerificated || canNextPlayer">
+          {{ isPlaying ? "Odtwarzanie (15s)..." : "Odtwórz fragment" }}
+        </button>
+        <button (click)="stop()"  [disabled]="!isPlaying">Zatrzymaj</button>
+        
+        <div style="border-bottom: 1px solid grey; margin-bottom: 12px;">
+          {{ 2026 }}
+        </div>
+      </div>
+    </div>
+    <div style="color: white">
+      <div cdkDropList (cdkDropListDropped)="drop($event)">
+        <table>
+          <tr
+            [class.gold]="!item?.dragable"
+            [class.new]="item?.dragable"
+            [class.wrong]="item?.isWrong"
+            cdkDrag
+            [cdkDragDisabled]="!item?.dragable"
+            *ngFor="let item of playersList[playerIndex].songList; let i = index"
+            style="min-width: 200px"
+          >
+            <td>
+              {{
+                item.dragable
+                  ? !isVerificated ? "Kiedy to było?" : (item.releaseDate | date: "yyyy")
+                  : (item.releaseDate | date: "yyyy")
+              }}
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div style="border-top: 1px solid grey; margin-top: 12px;">
+        {{ 1960 }}
+      </div>
+      <div *ngIf="!isVerificated">  
+        <button class="green" (click)="confirm()">Zatwierdź</button>
+      </div>
+      <div *ngIf="canNextPlayer" class="welcome-form">  
+        <button (click)="nextPlayer()">Kolejny gracz</button>
+      </div>
+    </div>
+    <div style="margin-top: 12px;">
+      <ul>
+        <li *ngFor="let p of playersList">
+          {{p.playerName}} {{p.goodAnswers}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+    <div class="welcome-card" *ngIf="!isGameStart">
+       <div class="logo-placeholder" aria-label="Miejsce na logo">
+      <img
+        src="assets/logo_gpt.png"
+        alt="Logo Quizu"
+        style="max-width: 100%; border-radius: 12px; max-height: 160px"
+      />
+    </div>
+    <p class="eyebrow">Super! Grasz w "Kiedyś to było"</p>
+      <div class="welcome-form">
+        <input [(ngModel)]="playerName" placeholder="Wpisz imię" (focus)="true" #playerInput>
+        <button [disabled]="!--playerInput.value.length" (click)="addPlayer()">Dodaj</button>
+      </div>
+    <div style="margin-top: 12px;">
+      <ul>
+        <li *ngFor="let p of playersList">
+          {{p.playerName}}
+        </li>
+      </ul>
+    </div>
+    <div class="welcome-form">
+      <button [disabled]="playersList.length < 1" (click)="isGameStart = true">Graj {{playersList.length}}</button>
+    </div>
+    </div>
+</main>
