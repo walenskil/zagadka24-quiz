@@ -11,10 +11,10 @@
       <span style="font-size: 12px;">Turę rozgrywa:</span>
       <p class="player">{{playersList[playerIndex].playerName}}</p>
       <div>
-        <button (click)="getMusic()" [disabled]="isPlaying || !isVerificated || canNextPlayer">
+        <button (click)="getMusic()"  *ngIf="!isPlaying" [disabled]="isPlaying || !isVerificated || canNextPlayer">
           {{ isPlaying ? "Odtwarzanie (15s)..." : "Odtwórz fragment" }}
         </button>
-        <button (click)="stop()"  [disabled]="!isPlaying">Zatrzymaj</button>
+        <button (click)="stop()" *ngIf="isPlaying">Zatrzymaj</button>
         
         <div style="border-bottom: 1px solid grey; margin-bottom: 12px;">
           {{ 2026 }}

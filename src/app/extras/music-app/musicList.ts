@@ -356,7 +356,7 @@ export const musicList = [
   {"rok":2003,"tytuł":"The Scientist","wykonawca":"Coldplay","origin":"zagraniczny"},
   {"rok":2003,"tytuł":"Crazy","wykonawca":"Seal","origin":"zagraniczny"},
   {"rok":2003,"tytuł":"Chcę tu zostać","wykonawca":"Farba","origin":"polski"},
-  {"rok":2003,"tytuł":"Chciałbym umrzeć z miłości","wykonawca":"Myslovitz","origin":"polski"},
+  {"rok":2003,"tytuł":"Jak zapomnieć","wykonawca":"Jeden Osiem L","origin":"polski"},
   {"rok":2003,"tytuł":"Bo tutaj jest jak jest","wykonawca":"Paweł Kukiz","origin":"polski"},
   {"rok":2003,"tytuł":"Testosteron","wykonawca":"Kayah","origin":"polski"},
   {"rok":2003,"tytuł":"Ajrisz","wykonawca":"T.Love","origin":"polski"},
