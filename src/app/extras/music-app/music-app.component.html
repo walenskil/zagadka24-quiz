@@ -59,8 +59,13 @@
     </div>
     <div style="margin-top: 12px;">
       <ul>
-        <li *ngFor="let p of playersList">
-          {{p.playerName}} {{p.goodAnswers}}
+        <li class="score" *ngFor="let p of playersList; let i = index" [class.playedRoundClass]="p.playedRound" [class.currentPlayer]="i==playerIndex">
+         <span>
+          {{p.playerName}}
+         </span>  
+         <span>
+           {{p.goodAnswers}}
+         </span>
         </li>
       </ul>
     </div>

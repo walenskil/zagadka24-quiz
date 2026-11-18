@@ -32,11 +32,12 @@ export class MusicAppComponent {
           dragable: false,
           previewUrl: '',
           releaseDate:
-            1964 + Math.floor(Math.random() * (2020 - 1964)) + '-01-01',
+            1970 + Math.floor(Math.random() * (2010 - 1970)) + '-01-01',
           trackName: '',
           isWrong: false,
         },
       ],
+      playedRound: false,
       goodAnswers: 0
     })
 
@@ -44,8 +45,12 @@ export class MusicAppComponent {
   }
 
   nextPlayer() {
+    this.playersList[this.playerIndex].playedRound = true
     this.playerIndex++;
-    if (this.playerIndex == this.playersList.length) this.playerIndex = 0;
+    if (this.playerIndex == this.playersList.length) {
+      this.playerIndex = 0
+      this.playersList.forEach(p=> p.playedRound = false)
+    };
     this.canNextPlayer = false;
   }
 
@@ -106,7 +111,7 @@ export class MusicAppComponent {
           trackName: tracks[0].trackName,
           releaseDate: year + '01-01',
           dragable: false,
-          isWrong: false,
+          isWrong: false
         },
       ];
       this.playCurrent();

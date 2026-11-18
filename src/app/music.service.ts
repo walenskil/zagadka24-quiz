@@ -15,8 +15,8 @@ export interface QuizTrack {
 export interface players {
   playerName: string;
   songList: QuizTrack[];
-    goodAnswers: number,
-
+  goodAnswers: number;
+  playedRound: boolean;
 }
 
 interface ItunesResponse {
@@ -25,12 +25,12 @@ interface ItunesResponse {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MusicService {
   private http = inject(HttpClient);
   private readonly API_URL = 'https://itunes.apple.com/search';
-  
+
   private audio: HTMLAudioElement | null = null;
   private stopTimeout: any;
 
@@ -40,16 +40,16 @@ export class MusicService {
       .set('term', term)
       .set('country', country)
       .set('entity', 'song')
-      .set('limit', 5)
+      .set('limit', 5);
 
-    return this.http.get<ItunesResponse>(this.API_URL, { params, 
-      headers: {
-        
-      }
-     }).pipe(
-      // Filtrujemy tylko te wyniki, które faktycznie mają link do audio
-      map(response => response.results.filter(track => !!track.previewUrl))
-    );
+    return this.http
+      .get<ItunesResponse>(this.API_URL, { params, headers: {} })
+      .pipe(
+        // Filtrujemy tylko te wyniki, które faktycznie mają link do audio
+        map((response) =>
+          response.results.filter((track) => !!track.previewUrl),
+        ),
+      );
   }
 
   // Odtwarza 15-sekundowy fragment
@@ -60,9 +60,9 @@ export class MusicService {
     this.audio.volume = 0.8;
 
     // Opcjonalnie: start od 5. sekundy, żeby ominąć ciszę na początku
-    this.audio.currentTime = 5; 
+    this.audio.currentTime = 5;
 
-    this.audio.play().catch(err => console.error('Błąd odtwarzania:', err));
+    this.audio.play().catch((err) => console.error('Błąd odtwarzania:', err));
 
     // Zatrzymaj dokładnie po 15 sekundach (15000 ms)
     this.stopTimeout = setTimeout(() => {

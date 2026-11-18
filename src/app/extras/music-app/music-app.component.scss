@@ -149,6 +149,11 @@ td {
   color: black;
 }
 
+.currentPlayer{
+  color: green !important;
+  background: #6f4f2b3b;
+}
+
 .green {
   margin-bottom: 20px;
   width: 100%;
@@ -166,6 +171,10 @@ td {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.playedRoundClass{
+   background: #6f4f2b3b;
 }
 
 .wrong {
@@ -201,6 +210,14 @@ ul, li {
   margin: 0px;
   padding: 0px;
   font-size: 14px;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.score{
+  padding: 0 8px;
+  display: flex !important;
+  justify-content: space-between;
 }
 
 .welcome-form > input {
