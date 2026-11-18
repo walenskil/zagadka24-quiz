@@ -50,8 +50,7 @@ export class MusicAppComponent {
   }
 
   confirm() {
-    this.stop();
-    
+    this.stop();    
     let check = this.playersList[this.playerIndex].songList.every(
       (item, index) => {
         if (index === 0) return true;

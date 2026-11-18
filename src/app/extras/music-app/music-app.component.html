@@ -34,11 +34,14 @@
             style="min-width: 200px"
           >
             <td>
+              <span>
               {{
                 item.dragable
                   ? !isVerificated ? "Kiedy to było?" : (item.releaseDate | date: "yyyy")
                   : (item.releaseDate | date: "yyyy")
-              }}
+              }} 
+              </span>
+              <img class="extraIcon" *ngIf="!isVerificated && item.dragable" src="assets/scroll.gif">
             </td>
           </tr>
         </table>
