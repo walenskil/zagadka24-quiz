@@ -125,6 +125,7 @@ export class MusicAppComponent {
 
   playCurrent(): void {
     this.isVerificated = false;
+    this.isPlaying = true;
     do this.currentTrack = this.tracks[0] || null;
     while (
       this.playersList[this.playerIndex].songList.includes(this.currentTrack)
@@ -134,7 +135,7 @@ export class MusicAppComponent {
     );
     this.currentTrack.dragable = true;
     this.playersList[this.playerIndex].songList.unshift(this.currentTrack);
-    if (!this.currentTrack) return;
+    if (!this.currentTrack) { this.isPlaying = false; return;};
     this.isPlaying = true;
 
     this.musicService.play15Seconds(this.currentTrack.previewUrl, () => {

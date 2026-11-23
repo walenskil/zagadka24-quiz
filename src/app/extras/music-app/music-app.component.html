@@ -53,7 +53,7 @@
         <button class="green" (click)="confirm()" [disabled]="this.currentTrack?.isWrong">Zatwierdź</button>
       </div>
       <div *ngIf="canNextPlayer" class="welcome-form"> 
-        <span style="font-size: 12px;">{{this.currentTrack?.artistName + ' ' + this.currentTrack?.trackName}}</span> 
+        <span style="font-size: 12px;">{{this.currentTrack?.releaseDate | date : 'yyyy'}}: {{this.currentTrack?.artistName + ' ' + this.currentTrack?.trackName}}</span> 
         <button (click)="nextPlayer()">Kolejny gracz</button>
       </div>
     </div>
