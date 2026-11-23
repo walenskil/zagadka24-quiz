@@ -66,7 +66,7 @@
       <div *ngIf="!isVerificated">
         <button
           class="green"
-          (click)="confirm()"
+          (click)="this.currentTrack?.isWrong? null: confirm()"
           [disabled]="this.currentTrack?.isWrong"
         >
           Zatwierdź
@@ -83,6 +83,9 @@
       </div>
     </div>
     <div style="margin-top: 12px">
+     <span style="font-size: 12px;">
+          Runda: {{round}}
+     </span>
       <ul>
         <li
           class="score"
@@ -91,7 +94,7 @@
           [class.currentPlayer]="i == playerIndex"
         >
           <span>
-            {{ p.playerName }}
+            {{ p.playerName }} <span *ngFor="let item of p.wins">★</span>
           </span>
           <span>
             {{ p.goodAnswers }}

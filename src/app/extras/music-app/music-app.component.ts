@@ -24,6 +24,7 @@ export class MusicAppComponent {
   isPlaying = false;
   isVerificated = true;
   iL: number[] = [];
+  round = 1
 
   addPlayer() {
     this.playersList.push({
@@ -39,6 +40,7 @@ export class MusicAppComponent {
           isWrong: false,
         },
       ],
+      wins: [],
       playedRound: false,
       goodAnswers: 0
     })
@@ -50,6 +52,7 @@ export class MusicAppComponent {
     this.playersList[this.playerIndex].playedRound = true
     this.playerIndex++;
     if (this.playerIndex == this.playersList.length) {
+      this.round++
       this.playerIndex = 0
       this.playersList.forEach(p=> p.playedRound = false)
       this.checkWin()
@@ -58,6 +61,7 @@ export class MusicAppComponent {
   }
 
   OdNowa(){
+    this.round = 1
     this.playerIndex = 0
     this.isGameStart = true
     this.isPlaying = false
@@ -88,6 +92,10 @@ export class MusicAppComponent {
     if(this.playersList.some(e => e.goodAnswers == this.win)){
       this.isWinner = true
       this.winners = this.playersList.filter(p => p.goodAnswers == this.win)
+      this.playersList.forEach(p =>{
+        if(p.goodAnswers == this.win)
+          p.wins.push(1)
+      })
     }
   }
 
@@ -108,14 +116,13 @@ export class MusicAppComponent {
         e.trackName == this.currentTrack.trackName,
     );
 
-    this.canNextPlayer = true;
     if (!check) {
+      this.isVerificated = false;
       this.playersList[this.playerIndex].songList[i].dragable = false;
       this.playersList[this.playerIndex].songList[i].isWrong = true;
-      this.isVerificated = true;
-   
+      
       setTimeout(() => {
-     
+        this.isVerificated = true;
         this.playersList[this.playerIndex].songList.splice(i, 1);
         this.canNextPlayer = true;
       }, 3000);

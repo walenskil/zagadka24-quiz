@@ -1,7 +1,7 @@
 // music.service.ts
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { debounceTime, map, Observable } from 'rxjs';
 
 export interface QuizTrack {
   trackName: string;
@@ -17,6 +17,7 @@ export interface players {
   songList: QuizTrack[];
   goodAnswers: number;
   playedRound: boolean;
+  wins: number[]
 }
 
 interface ItunesResponse {
@@ -45,6 +46,7 @@ export class MusicService {
     return this.http
       .get<ItunesResponse>(this.API_URL, { params, headers: {} })
       .pipe(
+        debounceTime(1000),
         // Filtrujemy tylko te wyniki, które faktycznie mają link do audio
         map((response) =>
           response.results.filter((track) => !!track.previewUrl),
