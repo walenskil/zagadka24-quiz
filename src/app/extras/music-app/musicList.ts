@@ -618,7 +618,7 @@ export const musicList = [
   {"rok":1982,"tytuł":"Centerfold","wykonawca":"The J. Geils Band","origin":"zagraniczny"},
   {"rok":1982,"tytuł":"Don't You Want Me","wykonawca":"The Human League","origin":"zagraniczny"},
   {"rok":1982,"tytuł":"Jack & Diane","wykonawca":"John Cougar","origin":"zagraniczny"},
-  {"rok":1982,"tytuł":"Chariots of Fire","wykonawca":"Vangelis","origin":"zagraniczny"},
+  {"rok":1982,"tytuł":"Rock the Casbah","wykonawca":"The Clash","origin":"zagraniczny"},
   {"rok":1982,"tytuł":"Abracadabra","wykonawca":"Steve Miller Band","origin":"zagraniczny"},
   {"rok":1982,"tytuł":"Hard to Say I'm Sorry","wykonawca":"Chicago","origin":"zagraniczny"},
   {"rok":1982,"tytuł":"Mickey","wykonawca":"Toni Basil","origin":"zagraniczny"},

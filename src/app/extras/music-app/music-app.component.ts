@@ -11,12 +11,14 @@ import { musicList } from './musicList';
 export class MusicAppComponent {
   private musicService = inject(MusicService);
 
+  isWinner = false
+  winners: players[] = [];
   playerName = '';
   isGameStart = false;
   canNextPlayer = false;
   playerIndex = 0;
   playersList: players[] = [];
-
+  win = 10  
   tracks: QuizTrack[] = [];
   currentTrack: QuizTrack | null = null;
   isPlaying = false;
@@ -50,8 +52,43 @@ export class MusicAppComponent {
     if (this.playerIndex == this.playersList.length) {
       this.playerIndex = 0
       this.playersList.forEach(p=> p.playedRound = false)
+      this.checkWin()
     };
     this.canNextPlayer = false;
+  }
+
+  OdNowa(){
+    this.playerIndex = 0
+    this.isGameStart = true
+    this.isPlaying = false
+    this.playersList.forEach(p=> {
+      p.goodAnswers = 0
+      p.playedRound = false
+      p.songList = [
+        {
+          artistName: 'Start',
+          dragable: false,
+          previewUrl: '',
+          releaseDate:
+            1970 + Math.floor(Math.random() * (2010 - 1970)) + '-01-01',
+          trackName: '',
+          isWrong: false,
+        },
+      ]
+    })
+    this.isWinner = false
+    this.winners = []
+  }
+
+  reload(){
+    window.location.reload()
+  }
+
+  checkWin(){
+    if(this.playersList.some(e => e.goodAnswers == this.win)){
+      this.isWinner = true
+      this.winners = this.playersList.filter(p => p.goodAnswers == this.win)
+    }
   }
 
   confirm() {
@@ -70,12 +107,15 @@ export class MusicAppComponent {
         e.artistName == this.currentTrack?.artistName &&
         e.trackName == this.currentTrack.trackName,
     );
-    console.log(check, i);
+
+    this.canNextPlayer = true;
     if (!check) {
       this.playersList[this.playerIndex].songList[i].dragable = false;
       this.playersList[this.playerIndex].songList[i].isWrong = true;
       this.isVerificated = true;
+   
       setTimeout(() => {
+     
         this.playersList[this.playerIndex].songList.splice(i, 1);
         this.canNextPlayer = true;
       }, 3000);

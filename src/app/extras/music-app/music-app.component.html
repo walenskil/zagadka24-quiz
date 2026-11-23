@@ -1,5 +1,6 @@
 <main class="welcome-page">
-  <div class="welcome-card" *ngIf="isGameStart">
+  <span class="info">{{iL.length}}</span>
+  <div class="welcome-card" *ngIf="isGameStart && !isWinner">
     <div class="logo-placeholder" aria-label="Miejsce na logo">
       <img
         src="assets/logo_gpt.png"
@@ -8,15 +9,19 @@
       />
     </div>
     <div class="welcome-form">
-      <span style="font-size: 12px;">Turę rozgrywa:</span>
-      <p class="player">{{playersList[playerIndex].playerName}}</p>
+      <span style="font-size: 12px">Turę rozgrywa:</span>
+      <p class="player">{{ playersList[playerIndex].playerName }}</p>
       <div>
-        <button (click)="getMusic()"  *ngIf="!isPlaying" [disabled]="isPlaying || !isVerificated || canNextPlayer">
+        <button
+          (click)="getMusic()"
+          *ngIf="!isPlaying"
+          [disabled]="isPlaying || !isVerificated || canNextPlayer"
+        >
           {{ isPlaying ? "Odtwarzanie (15s)..." : "Odtwórz fragment" }}
         </button>
         <button (click)="stop()" *ngIf="isPlaying">Zatrzymaj</button>
-        
-        <div style="border-bottom: 1px solid grey; margin-bottom: 12px;">
+
+        <div style="border-bottom: 1px solid grey; margin-bottom: 12px">
           {{ 2026 }}
         </div>
       </div>
@@ -30,49 +35,74 @@
             [class.wrong]="item?.isWrong"
             cdkDrag
             [cdkDragDisabled]="!item?.dragable"
-            *ngFor="let item of playersList[playerIndex].songList; let i = index"
+            *ngFor="
+              let item of playersList[playerIndex].songList;
+              let i = index
+            "
             style="min-width: 200px"
           >
             <td>
               <span>
-              {{
-                item.dragable
-                  ? !isVerificated ? "Kiedy to było?" : (item.releaseDate | date: "yyyy")
-                  : (item.releaseDate | date: "yyyy")
-              }} 
+                {{
+                  item.dragable
+                    ? !isVerificated
+                      ? "Kiedy to było?"
+                      : (item.releaseDate | date: "yyyy")
+                    : (item.releaseDate | date: "yyyy")
+                }}
               </span>
-              <img class="extraIcon" *ngIf="!isVerificated && item.dragable" src="assets/scroll.gif">
+              <img
+                class="extraIcon"
+                *ngIf="!isVerificated && item.dragable"
+                src="assets/scroll.gif"
+              />
             </td>
           </tr>
         </table>
       </div>
-      <div style="border-top: 1px solid grey; margin-top: 12px;">
+      <div style="border-top: 1px solid grey; margin-top: 12px">
         {{ 1960 }}
       </div>
-      <div *ngIf="!isVerificated">  
-        <button class="green" (click)="confirm()" [disabled]="this.currentTrack?.isWrong">Zatwierdź</button>
+      <div *ngIf="!isVerificated">
+        <button
+          class="green"
+          (click)="confirm()"
+          [disabled]="this.currentTrack?.isWrong"
+        >
+          Zatwierdź
+        </button>
       </div>
-      <div *ngIf="canNextPlayer" class="welcome-form"> 
-        <span style="font-size: 12px;">{{this.currentTrack?.releaseDate | date : 'yyyy'}}: {{this.currentTrack?.artistName + ' ' + this.currentTrack?.trackName}}</span> 
+      <div *ngIf="canNextPlayer" class="welcome-form">
+        <span style="font-size: 12px"
+          >{{ this.currentTrack?.releaseDate | date: "yyyy" }}:
+          {{
+            this.currentTrack?.artistName + " " + this.currentTrack?.trackName
+          }}</span
+        >
         <button (click)="nextPlayer()">Kolejny gracz</button>
       </div>
     </div>
-    <div style="margin-top: 12px;">
+    <div style="margin-top: 12px">
       <ul>
-        <li class="score" *ngFor="let p of playersList; let i = index" [class.playedRoundClass]="p.playedRound" [class.currentPlayer]="i==playerIndex">
-         <span>
-          {{p.playerName}}
-         </span>  
-         <span>
-           {{p.goodAnswers}}
-         </span>
+        <li
+          class="score"
+          *ngFor="let p of playersList; let i = index"
+          [class.playedRoundClass]="p.playedRound"
+          [class.currentPlayer]="i == playerIndex"
+        >
+          <span>
+            {{ p.playerName }}
+          </span>
+          <span>
+            {{ p.goodAnswers }}
+          </span>
         </li>
       </ul>
     </div>
   </div>
 
-    <div class="welcome-card" *ngIf="!isGameStart">
-       <div class="logo-placeholder" aria-label="Miejsce na logo">
+  <div class="welcome-card" *ngIf="!isGameStart && !isWinner">
+    <div class="logo-placeholder" aria-label="Miejsce na logo">
       <img
         src="assets/logo_gpt.png"
         alt="Logo Quizu"
@@ -80,19 +110,47 @@
       />
     </div>
     <p class="eyebrow">Super! Grasz w "Kiedyś to było"</p>
-      <div class="welcome-form">
-        <input [(ngModel)]="playerName" placeholder="Wpisz imię" (focus)="true" #playerInput>
-        <button [disabled]="!--playerInput.value.length" (click)="addPlayer()">Dodaj</button>
-      </div>
-    <div style="margin-top: 12px;">
+    <p class="eyebrow" style="font-size: 0.8rem; color: lightgray">Kto pierwszy ustawi na swojej liście 10 utworów</p>
+    <div class="welcome-form">
+      <input
+        [(ngModel)]="playerName"
+        placeholder="Wpisz imię"
+        (focus)="(true)"
+        #playerInput
+      />
+      <button [disabled]="!-(-playerInput.value.length)" (click)="addPlayer()">
+        Dodaj
+      </button>
+    </div>
+    <div style="margin: 12px 0px">
       <ul>
         <li *ngFor="let p of playersList">
-          {{p.playerName}}
+          {{ p.playerName }}
         </li>
       </ul>
     </div>
     <div class="welcome-form">
-      <button [disabled]="playersList.length < 1" (click)="isGameStart = true">Graj {{playersList.length}}</button>
+      <button [disabled]="playersList.length < 1" (click)="isGameStart = true">
+        Graj {{ playersList.length }}
+      </button>
     </div>
+  </div>
+  <div class="welcome-card" *ngIf="isWinner">
+    <div class="logo-placeholder" aria-label="Miejsce na logo">
+      <img
+        src="assets/logo_gpt.png"
+        alt="Logo Quizu"
+        style="max-width: 100%; border-radius: 12px; max-height: 160px"
+      />
     </div>
+    <p class="eyebrow">Super! Grasz w "Kiedyś to było"</p>
+    <p>Wygrani:</p>
+    <ul>
+      <li *ngFor="let winner of winners">{{ winner.playerName }}</li>
+    </ul>
+    <div class="welcome-form" style="margin-top: 12px">
+      <button (click)="OdNowa()">Gramy jeszcze raz</button>
+      <button (click)="reload()">Koniec</button>
+    </div>
+  </div>
 </main>
